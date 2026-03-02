@@ -1,5 +1,7 @@
-import MovieGallery from '@/components/MovieGallery';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import MovieGallery from '@/components/MovieGallery';
 
 
 
@@ -52,71 +54,45 @@ const Home = () => {
     return (
         <div className="home-page">
             {/* HERO SECTION */}
-            <section id="hero" className="hero">
-                <div className="shimenawa-rope"></div>
-                <div className="fuji-motif"></div>
-
+            <section id="hero" className="hero" style={{
+                position: 'relative',
+                overflow: 'hidden',
+                background: 'linear-gradient(to bottom, rgba(5,5,5,0.7), rgba(5,5,5,0.9)), url("https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2000&auto=format&fit=crop")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+            }}>
                 <div className="hero-content animate-fade">
-                    <div className="festival-aura"></div>
-
-                    <div className="hero-main-branding">
-                        <h2 className="highways-26-text text-glitch" data-text="HIGHWAYS 2026">HIGHWAYS 2026</h2>
+                    <div className="hero-main-branding" style={{ marginBottom: '2rem' }}>
+                        <h1 className="highways-26-text" data-text="HIGHWAYS'26" style={{
+                            margin: '0',
+                            padding: '0',
+                        }}>HIGHWAYS'26</h1>
                     </div>
                     <div className="hero-info">
-                        <div className="timer-grid">
+                        <div className="timer-grid minimalist-timer">
                             {[
-                                { value: timeLeft.days, label: 'Days', max: 365 },
-                                { value: timeLeft.hours, label: 'Hours', max: 24 },
-                                { value: timeLeft.minutes, label: 'Minutes', max: 60 },
-                                { value: timeLeft.seconds, label: 'Seconds', max: 60 }
-                            ].map(({ value, label, max }) => {
-                                const radius = 65;
-                                const stroke = 8;
-                                const normalizedRadius = radius - stroke;
-                                const circumference = normalizedRadius * 2 * Math.PI;
-                                const offset = circumference - (value / max) * circumference;
-
-                                return (
-                                    <div key={label} className="timer-circle-container">
-                                        <div className="timer-circle">
-                                            <svg style={{ width: '100%', height: '100%', transform: 'rotate(-90deg)' }} viewBox="0 0 140 140">
-                                                <circle cx="70" cy="70" r={normalizedRadius} stroke="#1f2937" strokeWidth={stroke} fill="transparent" />
-                                                <circle
-                                                    cx="70"
-                                                    cy="70"
-                                                    r={normalizedRadius}
-                                                    stroke="var(--kin)"
-                                                    strokeWidth={stroke}
-                                                    fill="transparent"
-                                                    strokeDasharray={circumference}
-                                                    strokeDashoffset={offset}
-                                                    strokeLinecap="round"
-                                                    style={{ transition: 'stroke-dashoffset 1s linear', filter: 'drop-shadow(0 0 8px var(--kin))' }}
-                                                />
-                                            </svg>
-                                            <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
-                                                <span className="timer-value">
-                                                    {value.toString().padStart(2, '0')}
-                                                </span>
-                                                <span className="timer-label">
-                                                    {label}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                                { value: timeLeft.days, unit: 'D' },
+                                { value: timeLeft.hours, unit: 'H' },
+                                { value: timeLeft.minutes, unit: 'M' },
+                                { value: timeLeft.seconds, unit: 'S' }
+                            ].map(({ value, unit }) => (
+                                <div key={unit} className="timer-segment">
+                                    <span className="timer-value">
+                                        {value.toString().padStart(2, '0')}
+                                    </span>
+                                    <span className="timer-unit">
+                                        {unit}
+                                    </span>
+                                </div>
+                            ))}
                         </div>
                         <div className="date-badge">TBD</div>
                         <p className="hero-tagline">WHERE TRADITION MEETS THE FUTURE</p>
                     </div>
                     <div className="hero-btns">
-                        <a href="#glimpses" className="btn-matsuri">Explore More</a>
+                        <Link to="/events" className="btn-matsuri">Explore More</Link>
                     </div>
                 </div>
-
-                <div className="hero-bottom-decor"></div>
-                <div className="wave-divider" style={{ position: 'absolute', bottom: 0 }}></div>
             </section>
 
             {/* ABOUT SECTION */}
@@ -124,19 +100,18 @@ const Home = () => {
                 <div className="container">
                     <div className="about-flex">
                         <div className="about-text">
-                            <h2 className="section-title left">OUR HERITAGE</h2>
+                            <h2 className="section-title left">THE SAGA BEGINS</h2>
                             <p>Highways is the annual intercollegiate cultural festival of Sri Venkateswara College of Engineering (SVCE). Known for its vibrant atmosphere and creative energy, Highways brings together students from across the states to celebrate art, talent, and expression.</p>
-                            <p>This year, for <strong>Highways '26</strong>, we are embracing the spirit of the <em>Japanese Carnival</em>. Imagine the glow of a thousand lanterns, the rhythm of taiko drums, and the festive magic of a Matsuri night, all right here on our campus.</p>
+                            <p>This year, for <strong>Highways '26</strong>, we are pushing the boundaries of creativity. Experience a festival like never before, where every moment is a masterpiece and every event is a step into the extraordinary.</p>
                             <div className="about-highlights">
-                                <div className="highlight"><i className="fas fa-drum"></i> Cultural Fusion</div>
-                                <div className="highlight"><i className="fas fa-mask"></i> Artistic Expression</div>
-                                <div className="highlight"><i className="fas fa-fire"></i> Infinite Energy</div>
+                                <div className="highlight"><i className="fas fa-bolt"></i> Pure Energy</div>
+                                <div className="highlight"><i className="fas fa-palette"></i> Creative Soul</div>
+                                <div className="highlight"><i className="fas fa-star"></i> Infinite Talent</div>
                             </div>
                         </div>
                         <div className="about-image-container">
                             <div className="image-frame" style={{ position: 'relative' }}>
-                                <img src="https://images.unsplash.com/photo-1542332213-31f87348057f?w=800&q=80" alt="Carnival Vibe" className="main-about-img" style={{ width: '100%', border: '5px solid var(--murasaki)', boxShadow: '15px 15px 0 var(--kin)' }} />
-                                <div className="hanko-stamp">HIGHWAYS 2026</div>
+                                <img src="https://images.unsplash.com/photo-1542332213-31f87348057f?q=80&w=1200&auto=format&fit=crop" alt="Natural Scenery" className="main-about-img" style={{ width: '100%', borderRadius: '15px' }} />
                             </div>
                         </div>
                     </div>
@@ -147,17 +122,55 @@ const Home = () => {
             <section id="celebrities" className="celebrity-section" style={{ padding: '100px 0' }}>
                 <div className="container">
                     <h2 className="section-title center">CELEBRITY GUESS</h2>
-                    <div className="celebrity-grid">
-                        {[1, 2, 3, 4].map(i => (
-                            <div key={i} className="celebrity-card">
-                                <div className="celeb-image-placeholder">
-                                    <span className="mystery-mark">?</span>
-                                </div>
-                                <div className="celeb-info">
-                                    <h3>Mystery Guest {i}</h3>
-                                    <p>Can you guess who's coming?</p>
-                                </div>
-                            </div>
+                    <div className="celebrity-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginTop: '50px' }}>
+                        {[
+                            { id: 1, type: "ACTOR", hint: "From the blockbusters of Tamil Cinema" },
+                            { id: 2, type: "SINGER", hint: "The voice that stole a million hearts" },
+                            { id: 3, type: "COMEDIAN", hint: "Laughter is coming to SVCE" },
+                            { id: 4, type: "GUEST", hint: "A legend in the making" }
+                        ].map(celeb => (
+                            <motion.div
+                                key={celeb.id}
+                                whileHover={{ scale: 1.05 }}
+                                className="celebrity-card-premium"
+                                style={{
+                                    background: 'rgba(255,255,255,0.03)',
+                                    borderRadius: '30px',
+                                    padding: '40px 20px',
+                                    textAlign: 'center',
+                                    border: '1px solid rgba(255,255,255,0.05)',
+                                    position: 'relative',
+                                    overflow: 'hidden',
+                                    cursor: 'pointer'
+                                }}
+                            >
+                                <div className="mystery-circle" style={{
+                                    width: '150px',
+                                    height: '150px',
+                                    margin: '0 auto 20px',
+                                    background: 'rgba(255,255,255,0.05)',
+                                    borderRadius: '50%',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    fontSize: '4rem',
+                                    fontWeight: 900,
+                                    color: '#ff4d4d',
+                                    textShadow: '0 0 20px rgba(255, 77, 77, 0.4)'
+                                }}>?</div>
+                                <span style={{ color: '#ff4d4d', fontSize: '0.7rem', fontWeight: 900, letterSpacing: '4px' }}>{celeb.type}</span>
+                                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, margin: '10px 0' }}>COMING SOON</h3>
+                                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem' }}>{celeb.hint}</p>
+                                <div className="reveal-btn" style={{
+                                    marginTop: '20px',
+                                    background: 'white',
+                                    color: 'black',
+                                    padding: '8px 20px',
+                                    borderRadius: '50px',
+                                    fontSize: '0.75rem',
+                                    fontWeight: 900
+                                }}>REVEAL SOON</div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

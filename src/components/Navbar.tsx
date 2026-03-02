@@ -50,9 +50,13 @@ const Navbar = () => {
                         <span>Events</span>
                     </Link>
 
-                    <a href="https://www.acesvce.in/" className="nav-link" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu}>
+                    <Link to="/schedule" className="nav-link" onClick={closeMobileMenu}>
+                        <span>Schedule</span>
+                    </Link>
+
+                    <Link to="/passes" className="nav-link" onClick={closeMobileMenu}>
                         <span>Get Passes</span>
-                    </a>
+                    </Link>
 
                     <Link to="/sponsors" className="nav-link" onClick={closeMobileMenu}>
                         <span>Sponsors</span>

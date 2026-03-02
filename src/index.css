@@ -3,21 +3,21 @@
 @tailwind utilities;
 
 @utility scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-    &::-webkit-scrollbar {
-        display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 :root {
-  --midnight: #0D1117;
-  --kin: #FFB703;
-  --murasaki: #EF233C;
-  --cyan: #00D4FF;
-  --gofun: #EDF2F4;
-  --indigo: #161B22;
+  --bg-dark: #0D1117;
+  --primary: #EF233C;
+  --secondary: #FFFFFF;
+  --accent: #00D4FF;
+  --text-light: #EDF2F4;
+  --panel-dark: #161B22;
 }
 
 body {
@@ -25,10 +25,14 @@ body {
   font-family: 'Outfit', 'Noto Sans JP', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--midnight);
-  color: var(--gofun);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+    url('https://images.unsplash.com/photo-1542332213-31f87348057f?q=80&w=2000&auto=format&fit=crop') fixed bottom/cover,
+    linear-gradient(to bottom, #1a0f0f 0%, #000c1a 50%, #0d0000 100%) fixed;
+  background-attachment: fixed;
+  color: var(--text-light);
   overflow-x: hidden;
-  cursor: crosshair;
+  cursor: auto;
 }
 
 code {
@@ -41,14 +45,14 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--midnight);
+  background: var(--bg-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--murasaki);
+  background: var(--primary);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--kin);
+  background: var(--secondary);
 }

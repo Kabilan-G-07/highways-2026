@@ -1,98 +1,106 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const FAQ = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const faqs = [
-        { q: "What is Highways?", a: "Highways is the annual intercollegiate cultural festival of Sri Venkateswara College of Engineering (SVCE), featuring a vibrant celebration of art, talent, and expression with a Japanese carnival theme." },
-        { q: "Who can participate?", a: "Students from any recognized college across the country can participate in Highways events." },
-        { q: "How to register?", a: "You can register through the 'Get Passes' section in the navigation menu or visit acesvce.in for more details." },
-        { q: "Is registration free?", a: "Different events have different registration fees. Check the pass details for specific pricing information." },
-        { q: "Will there be pro-shows?", a: "Yes! Stay tuned for celebrity announcements and exciting pro-shows throughout the festival." },
-        { q: "When is Highways 2026?", a: "The exact dates will be announced soon. Keep checking our website and social media for updates." },
-        { q: "Where is the venue?", a: "Highways takes place at Sri Venkateswara College of Engineering, Sriperumbudur, Tamil Nadu." },
-        { q: "What events are included?", a: "Highways features a wide range of cultural events including music, dance, drama, art, and various competitions. Check the Events page for details." },
+        { q: "What is Highways '26?", a: "Highways '26 is the premier intercollegiate cultural festival of Sri Venkateswara College of Engineering (SVCE), celebrating creativity, talent, and diversity across a 3-day saga." },
+        { q: "Who is eligible to participate?", a: "Students currently enrolled in any recognized undergraduate or postgraduate program across the country are welcome to participate." },
+        { q: "How do I secure my festival pass?", a: "You can purchase your passes directly through our 'Passes' page. We offer day-specific passes and a full-access combo pass." },
+        { q: "Are the passes refundable?", a: "All pass sales are final. However, you can transfer your pass to another student with prior approval from the organizers." },
+        { q: "What should I bring for registration?", a: "Please carry your college ID card and the digital QR code of your festival pass for verification at the entrance." },
+        { q: "Will there be professional performances?", a: "Absolutely! Each night concludes with a high-energy pro-show featuring top-tier artists. Check the Celebrity Reveal section for updates." },
+        { q: "Is on-spot registration available?", a: "We strongly recommend online booking as passes are limited and usually sell out before the event. On-spot registration depends on availability." },
+        { q: "Is there a specific dress code?", a: "There's no strict dress code, but we encourage participants to dress comfortably. Some special events might have thematic guidelines mentioned in their rules." },
+        { q: "Where can I stay during the festival?", a: "While we don't provide on-campus accommodation, there are several hotels and guest houses available in the Sriperumbudur area." },
+        { q: "Who can I contact for event-related queries?", a: "You can reach out to our event coordinators through the contact details provided in each event's description or via our social media handles." },
+        { q: "Is food available on campus?", a: "Yes, we will have a dedicated food zone with a variety of stalls catering to different tastes throughout the festival." },
+        { q: "Can alumni attend Highways '26?", a: "Yes, we have a special 'Alumni Pass' designed for our former students to join the celebration." }
     ];
 
     return (
-        <section id="faq" className="faq-section" style={{ paddingTop: '150px', minHeight: '100vh' }}>
+        <section id="faq" className="faq-page-v3" style={{ paddingTop: '150px', minHeight: '100vh', paddingBottom: '100px' }}>
             <div className="container">
-                <h2 className="section-title center">FREQUENTLY ASKED QUESTIONS</h2>
-                <div className="faq-accordion">
+                <div className="faq-header" style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                    <span style={{ color: '#ff4d4d', letterSpacing: '5px', fontWeight: 900, textTransform: 'uppercase', fontSize: '0.8rem' }}>INSIGHTS</span>
+                    <h2 style={{ fontSize: '4rem', fontWeight: 950, marginTop: '1rem' }}>COMMON QUESTIONS</h2>
+                </div>
+
+                <div className="faq-grid" style={{ maxWidth: '1000px', margin: '0 auto' }}>
                     {faqs.map((item, i) => (
-                        <div key={i} className={`faq-accordion-item ${openIndex === i ? 'active' : ''}`}>
-                            <button 
-                                className="faq-question"
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.05 }}
+                            viewport={{ once: true }}
+                            className={`faq-card ${openIndex === i ? 'active' : ''}`}
+                            style={{
+                                background: 'rgba(255,255,255,0.02)',
+                                border: '1px solid rgba(255,255,255,0.05)',
+                                borderRadius: '20px',
+                                marginBottom: '1.5rem',
+                                overflow: 'hidden',
+                                transition: 'all 0.4s cubic-bezier(0.23, 1, 0.32, 1)'
+                            }}
+                        >
+                            <button
                                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                                style={{
+                                    width: '100%',
+                                    padding: '2rem',
+                                    background: 'transparent',
+                                    border: 'none',
+                                    color: 'white',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    cursor: 'pointer',
+                                    textAlign: 'left'
+                                }}
                             >
-                                <span>{item.q}</span>
-                                <span className="faq-icon">{openIndex === i ? '−' : '+'}</span>
+                                <span style={{ fontSize: '1.2rem', fontWeight: 800 }}>{item.q}</span>
+                                <span style={{
+                                    width: '30px',
+                                    height: '30px',
+                                    background: openIndex === i ? '#ff4d4d' : 'rgba(255,255,255,0.1)',
+                                    borderRadius: '50%',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    transition: 'all 0.3s ease',
+                                    transform: openIndex === i ? 'rotate(45deg)' : 'rotate(0)'
+                                }}>+</span>
                             </button>
-                            <div className={`faq-answer ${openIndex === i ? 'open' : ''}`}>
-                                <p>{item.a}</p>
-                            </div>
-                        </div>
+                            <AnimatePresence>
+                                {openIndex === i && (
+                                    <motion.div
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: 'auto', opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        style={{ overflow: 'hidden' }}
+                                    >
+                                        <div style={{ padding: '0 2rem 2rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, fontSize: '1rem' }}>
+                                            {item.a}
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </motion.div>
                     ))}
                 </div>
             </div>
 
             <style>{`
-                .faq-accordion {
-                    max-width: 900px;
-                    margin: 50px auto 0;
+                .faq-card:hover {
+                    background: rgba(255,255,255,0.05) !important;
+                    border-color: rgba(255, 77, 77, 0.3) !important;
                 }
-                .faq-accordion-item {
-                    background: rgba(22, 27, 34, 0.6);
-                    border: 1px solid rgba(255, 183, 3, 0.2);
-                    margin-bottom: 15px;
-                    border-radius: 4px;
-                    overflow: hidden;
-                    transition: all 0.3s ease;
-                }
-                .faq-accordion-item.active {
-                    border-color: var(--kin);
-                    box-shadow: 0 0 20px rgba(255, 183, 3, 0.2);
-                }
-                .faq-question {
-                    width: 100%;
-                    padding: 25px 30px;
-                    background: transparent;
-                    border: none;
-                    color: var(--gofun);
-                    font-size: 1.1rem;
-                    font-weight: 700;
-                    text-align: left;
-                    cursor: pointer;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    transition: all 0.3s ease;
-                }
-                .faq-question:hover {
-                    color: var(--kin);
-                }
-                .faq-icon {
-                    font-size: 1.5rem;
-                    color: var(--kin);
-                    font-weight: 300;
-                    transition: transform 0.3s ease;
-                }
-                .faq-accordion-item.active .faq-icon {
-                    transform: rotate(180deg);
-                }
-                .faq-answer {
-                    max-height: 0;
-                    overflow: hidden;
-                    transition: max-height 0.4s ease, padding 0.4s ease;
-                }
-                .faq-answer.open {
-                    max-height: 500px;
-                    padding: 0 30px 25px;
-                }
-                .faq-answer p {
-                    color: #ccc;
-                    line-height: 1.8;
-                    margin: 0;
+                .faq-card.active {
+                    background: rgba(255,255,255,0.04) !important;
+                    border-color: rgba(255, 77, 77, 0.5) !important;
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
                 }
             `}</style>
         </section>

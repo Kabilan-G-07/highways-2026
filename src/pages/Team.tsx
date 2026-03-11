@@ -69,7 +69,7 @@ const teamData: TeamGroup[] = [
         "id": "web",
         "name": "WEB ARCHITECTS",
         "members": [
-            { "name": "Balakrishnan.R", "role": "Lead", "spirit": "The Oracle", "image": "/members/Screenshot 2026-03-01 194153 - BALAKRISHNAN R AI&DS.png" },
+            { "name": "Balakrishnan.R", "role": "Lead", "spirit": "The Oracle", "image": "/members/Balakrishnan.webp" },
             { "name": "B jashwanth shankar", "role": "Member", "spirit": "The Apex", "image": "/members/jashwanth-member_web - B JASHWANTH SHANKAR CSE.jpeg" }
         ]
     },

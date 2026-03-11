@@ -117,5 +117,5 @@ lines.forEach(line => {
 });
 
 const teamData = Object.values(grouped);
-fs.writeFileSync('teamData_final.json', JSON.stringify(teamData, null, 4));
+fs.writeFileSync('json/teamData_final.json', JSON.stringify(teamData, null, 4));
 console.log('Done');

@@ -140,5 +140,5 @@ const finalData = teamData.map(group => ({
     }))
 }));
 
-fs.writeFileSync('mapped_data.json', JSON.stringify(finalData, null, 4));
+fs.writeFileSync('json/mapped_data.json', JSON.stringify(finalData, null, 4));
 console.log('Saved');

@@ -151,4 +151,4 @@ function parseLine(line) {
 }
 
 const events = rawData.split('\n').map(parseLine);
-fs.writeFileSync('events_fixed.json', JSON.stringify(events, null, 2), 'utf8');
+fs.writeFileSync('json/events_fixed.json', JSON.stringify(events, null, 2), 'utf8');

@@ -58,18 +58,26 @@ const Home = () => {
                 overflow: 'hidden',
                 background: 'linear-gradient(to bottom, rgba(5,5,5,0.7), rgba(5,5,5,0.9)), url("https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2000&auto=format&fit=crop")',
                 backgroundSize: 'cover',
-                backgroundPosition: 'center'
+                backgroundPosition: 'center',
+                minHeight: '100vh',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
             }}>
-                <div className="hero-content animate-fade">
-                    <div className="flex justify-center mb-8 md:mb-12">
+                <div className="hero-content home-hero-content animate-fade w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    {/* UPDATED LOGO CONTAINER */}
+                    {/* FIXED LOGO CONTAINER */}
+                    <div className="flex justify-center w-full mb-8 md:mb-12">
                         <img
                             src={HighwaysLogo}
                             alt="Highways Logo"
-                            className="w-[95%] md:w-[85%] h-auto mx-auto"
+                            className="w-auto h-auto max-w-[90%] md:max-w-[800px] max-h-[120px] md:max-h-[200px] lg:max-h-[250px] object-contain mx-auto drop-shadow-2xl"
                         />
                     </div>
-                    <div className="hero-info">
-                        <div className="premium-countdown">
+                    
+                    <div className="hero-info flex flex-col items-center">
+                        <div className="premium-countdown flex flex-wrap justify-center gap-4 mb-6">
                             {[
                                 { value: timeLeft.days, label: 'DAYS' },
                                 { value: timeLeft.hours, label: 'HOURS' },
@@ -90,9 +98,9 @@ const Home = () => {
                             ))}
                         </div>
                         <div className="date-badge">APRIL 09, 10, 11</div>
-                        <p className="hero-tagline">WHERE TRADITION MEETS THE FUTURE</p>
+                        <p className="hero-tagline text-center">WHERE TRADITION MEETS THE FUTURE</p>
                     </div>
-                    <div className="hero-btns">
+                    <div className="hero-btns flex justify-center mt-8">
                         <Link to="/events" className="btn-matsuri">Explore More</Link>
                     </div>
                 </div>
@@ -106,7 +114,6 @@ const Home = () => {
                             <h2 className="section-title left">THE SAGA BEGINS</h2>
                             <p>Highways is the annual intercollegiate cultural festival of Sri Venkateswara College of Engineering (SVCE). Known for its vibrant atmosphere and creative energy, Highways brings together students from across the states to celebrate art, talent, and expression.</p>
                             <p>This year, for <strong>Highways '26</strong>, we are pushing the boundaries of creativity. Experience a festival like never before, where every moment is a masterpiece and every event is a step into the extraordinary.</p>
-
                         </div>
                         <div className="about-image-container">
                             <div className="image-frame" style={{ position: 'relative' }}>
@@ -175,7 +182,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* GLIMPSES SECTION: INFINITE DRIFT */}
+            {/* GLIMPSES SECTION */}
             <section id="glimpses" className="glimpses-section-new" style={{ position: 'relative' }}>
                 <div className="container" style={{ marginBottom: '4rem' }}>
                     <h2 className="section-title center">PAST GLIMPSES</h2>
@@ -202,49 +209,26 @@ const Home = () => {
                             images: ['31.webp', '24.webp', '20.webp', '28.webp', '33.webp', '22.webp', '26.webp', '30.webp', '21.webp', '29.webp', '25.webp', '32.webp', '23.webp', '27.webp'] 
                         }
                     ].map((track) => (
-                        <div key={track.year} className="track-row-wrapper" style={{ 
-                            position: 'relative'
-                        }}>
-                            {/* Cinematic Year Background Watermark */}
+                        <div key={track.year} className="track-row-wrapper" style={{ position: 'relative' }}>
                             <div className="year-watermark" style={{
-                                position: 'absolute',
-                                left: '5%',
-                                top: '50%',
-                                transform: 'translateY(-50%)',
-                                fontSize: '12vw',
-                                fontWeight: 950,
-                                color: 'rgba(255,255,255,0.02)',
-                                pointerEvents: 'none',
-                                zIndex: 0,
-                                fontFamily: "'Outfit', sans-serif"
+                                position: 'absolute', left: '5%', top: '50%', transform: 'translateY(-50%)',
+                                fontSize: '12vw', fontWeight: 950, color: 'rgba(255,255,255,0.02)',
+                                pointerEvents: 'none', zIndex: 0, fontFamily: "'Outfit', sans-serif"
                             }}>
                                 {track.year}
                             </div>
 
-                            {/* Floating Integrated Label - Aligned Left for all */}
                             <div className="floating-year-label" style={{
-                                position: 'absolute',
-                                left: '5%',
-                                top: '-60px',
-                                zIndex: 10,
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '20px'
+                                position: 'absolute', left: '5%', top: '-60px', zIndex: 10,
+                                display: 'flex', alignItems: 'center', gap: '20px'
                             }}>
                                 <div style={{ width: '40px', height: '1px', background: '#ff4d4d' }}></div>
-                                <span style={{ 
-                                    color: 'white', 
-                                    fontWeight: 900, 
-                                    fontSize: '1.5rem', 
-                                    letterSpacing: '5px',
-                                    textTransform: 'uppercase'
-                                }}>
+                                <span style={{ color: 'white', fontWeight: 900, fontSize: '1.5rem', letterSpacing: '5px', textTransform: 'uppercase' }}>
                                     <span style={{ color: '#ff4d4d' }}>HIGHWAYS</span> '{track.year.slice(2)}
                                 </span>
                             </div>
                             
-                            <div className="drift-track fast" style={{ zIndex: 1 }}>
-                                {/* Repeat twice for a proper 50% loop */}
+                            <div className={`drift-track ${track.speed}`} style={{ zIndex: 1 }}>
                                 {[...track.images, ...track.images].map((img, i) => (
                                     <div key={`${track.year}-${i}`} className="glimpse-frame" style={{
                                         transform: i % 2 === 0 ? 'translateY(20px)' : 'translateY(-20px)'
@@ -258,9 +242,7 @@ const Home = () => {
                 </div>
 
                 <style>{`
-                    .track-row-wrapper {
-                        transition: all 0.5s ease;
-                    }
+                    .track-row-wrapper { transition: all 0.5s ease; }
                     .track-row-wrapper:hover .year-watermark {
                         color: rgba(255, 77, 77, 0.05);
                         transform: translateY(-50%) scale(1.05);
@@ -274,40 +256,80 @@ const Home = () => {
                         background: white;
                     }
                     
+                    /* MOBILE FIXES */
                     @media (max-width: 768px) {
-                        .premium-countdown { gap: 10px !important; }
-                        .countdown-card { width: 70px !important; height: 90px !important; }
-                        .countdown-number { font-size: 2rem !important; }
-                        .countdown-label { font-size: 0.5rem !important; }
+                        /* Force single line and scale gap */
+                        .premium-countdown { 
+                            flex-wrap: nowrap !important; 
+                            gap: 2vw !important; 
+                            width: 100% !important;
+                            padding: 0 10px !important;
+                            justify-content: center !important;
+                        }
+                        
+                        /* Dynamic width so 4 cards always fit on screen */
+                        .countdown-card { 
+                            width: 22vw !important; 
+                            max-width: 80px !important;
+                            height: 85px !important; 
+                            display: flex !important;
+                            flex-direction: column !important;
+                            justify-content: center !important;
+                        }
+                        
+                        /* Ensure number has space */
+                        .card-top {
+                            height: 60% !important;
+                            display: flex !important;
+                            align-items: flex-end !important;
+                            justify-content: center !important;
+                        }
+                        
+                        /* Ensure label is visible at the bottom */
+                        .card-bottom {
+                            height: 40% !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                        }
+                        
+                        .countdown-number { 
+                            font-size: 7vw !important; /* Scales with screen width */
+                            max-font-size: 2rem !important;
+                            line-height: 1 !important;
+                        }
+                        
+                        .countdown-label { 
+                            font-size: 0.6rem !important; 
+                            letter-spacing: 1px !important;
+                            color: rgba(255,255,255,0.8) !important;
+                            display: block !important;
+                            z-index: 10;
+                        }
+
+                        /* Other existing mobile fixes */
                         .hero-tagline { font-size: 0.8rem !important; letter-spacing: 4px !important; }
-                        .hero-content { padding: 40px 15px !important; }
+                        .hero-content { padding: 40px 10px !important; }
                         .about-flex { flex-direction: column !important; text-align: center; }
                         .about-text { margin-bottom: 3rem !important; }
                         .section-title.left { text-align: center !important; }
                         .section-title.left::after { left: 50% !important; transform: translateX(-50%) !important; }
 
-                        .glimpses-track-container {
-                            gap: 120px !important;
-                        }
+                        .glimpses-track-container { gap: 120px !important; }
                         .floating-year-label {
-                            left: 50% !important;
-                            right: auto !important;
-                            transform: translateX(-50%);
-                            top: -40px !important;
+                            left: 50% !important; right: auto !important;
+                            transform: translateX(-50%); top: -40px !important;
                         }
                         .floating-year-label span { font-size: 1rem !important; }
                         .floating-year-label div { display: none; }
                         .year-watermark { display: none; }
                         .glimpse-frame {
-                            height: 250px !important;
-                            width: 180px !important;
+                            height: 250px !important; width: 180px !important;
                             transform: none !important;
                         }
                     }
                 `}</style>
             </section>
-
-
         </div>
     );
 };

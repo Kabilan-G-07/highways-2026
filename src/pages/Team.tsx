@@ -6,6 +6,7 @@ interface Member {
     role: string;
     spirit: string;
     image: string;
+    imagePosition?: string;
     socials?: {
         instagram?: string;
         linkedin?: string;
@@ -24,17 +25,17 @@ const teamData: TeamGroup[] = [
         "name": "MARKETING & SALES",
         "members": [
             { "name": "ARIVUNITHI R", "role": "Lead", "spirit": "The Visionary", "image": "/members/Arivunithi R  - ARIVUNITHI R CSE.webp" },
-            { "name": "Sunil kumar v", "role": "Member", "spirit": "The Strategist", "image": "/members/IMG-20260211-WA0027 - SUNIL KUMAR V CVE.webp" },
+            { "name": "Sunil kumar v", "role": "Member", "spirit": "The Strategist", "image": "/members/IMG-20260211-WA0027 - SUNIL KUMAR V CVE.webp", "imagePosition": "center 10%" },
             { "name": "M.logeshwaran", "role": "Member", "spirit": "The Architect", "image": "/members/IMG_20250926_234941_345 - LOGESHWARAN M ECE.webp" },
             { "name": "Santhoshkumar C", "role": "Member", "spirit": "The Catalyst", "image": "/members/IMG_20251114_221105 - SANTHOSHKUMAR C EEE.webp" },
             { "name": "SAISUNDAR S", "role": "Member", "spirit": "The Creative", "image": "/members/IMG-20260220-WA0012 - SAISUNDAR S EEE.webp" },
             { "name": "NARAEN KARTICK A", "role": "Member", "spirit": "The Engine", "image": "/members/Naraen Kartick-Sublead_Marketing - NARAEN KARTICK A CVE.webp" },
             { "name": "C Dhinesh", "role": "Member", "spirit": "The Pulse", "image": "/members/Dhinesh-Member_Marketing - DHINESH C CSE.webp" },
-            { "name": "Yuvakannan D", "role": "Member", "spirit": "The Guardian", "image": "/members/20250925_213406 - YUVAKANNAN D CSE.webp" },
+            { "name": "Yuvakannan D", "role": "Member", "spirit": "The Guardian", "image": "/members/20250925_213406 - YUVAKANNAN D CSE.webp", "imagePosition": "center 12%" },
             { "name": "RB YUVAN", "role": "Member", "spirit": "The Navigator", "image": "/members/RB Yuvan-Member_marketing and sales - RB YUVAN ECE.webp" },
-            { "name": "Veeraiah V", "role": "Member", "spirit": "The Maven", "image": "/members/VEERAIAH V - Marketing and sales (1) - VEERAIAH V CHEM.webp" },
+            { "name": "Veeraiah V", "role": "Member", "spirit": "The Maven", "image": "/members/VEERAIAH V - Marketing and sales (1) - VEERAIAH V CHEM.webp", "imagePosition": "center 12%" },
             { "name": "Madhan Balaji A", "role": "Member", "spirit": "The Craftsman", "image": "/members/Madhan-marketing-member - 026 MADHAN BALAJI A ME.webp" },
-            { "name": "Dayaalan K T", "role": "Member", "spirit": "The Pioneer", "image": "/members/Dayaalan K T-Marketing_Member - DAYAALAN K T CSE.webp" },
+            { "name": "Dayaalan K T", "role": "Member", "spirit": "The Pioneer", "image": "/members/Dayaalan K T-Marketing_Member - DAYAALAN K T CSE.webp", "imagePosition": "center 10%" },
             { "name": "Sucharitha Kapuluru", "role": "Member", "spirit": "The Trailblazer", "image": "/members/IMG-20260115-WA0030(2) - SUCHARITHA KAPULURU AI&DS.webp" },
             { "name": "Roshan M", "role": "Member", "spirit": "The Alchemist", "image": "/members/Roshan M - Member_Marketing - 116 ROSHAN M ECE.webp" },
             { "name": "VASANTH K N", "role": "Member", "spirit": "The Sentinel", "image": "/members/VASANTH K N - MEMBER - MARKETING AND SALESs - VASANTH K N AI&DS.webp" },
@@ -70,7 +71,7 @@ const teamData: TeamGroup[] = [
         "name": "WEB ARCHITECTS",
         "members": [
             { "name": "Balakrishnan.R", "role": "Lead", "spirit": "The Oracle", "image": "/members/Balakrishnan.webp" },
-            { "name": "B jashwanth shankar", "role": "Member", "spirit": "The Apex", "image": "/members/jashwanth-member_web - B JASHWANTH SHANKAR CSE.webp" }
+            { "name": "B jashwanth shankar", "role": "Member", "spirit": "The Apex", "image": "/members/jashwanth-member_web - B JASHWANTH SHANKAR CSE.webp", "imagePosition": "center 8%" }
         ]
     },
     {
@@ -235,7 +236,7 @@ const Team = () => {
                                     <img 
                                         src={member.image} 
                                         alt={member.name} 
-                                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: member.imagePosition ?? 'center 15%' }}
                                         onError={(e) => {
                                             (e.target as HTMLImageElement).src = `https://api.dicebear.com/7.x/avataaars/svg?seed=${member.name}`;
                                         }}

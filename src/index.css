@@ -27,7 +27,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background:
     linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
-    url('https://images.unsplash.com/photo-1542332213-31f87348057f?q=80&w=2000&auto=format&fit=crop') fixed bottom/cover,
+    url('./background.jpg') fixed bottom/cover,
     linear-gradient(to bottom, #1a0f0f 0%, #000c1a 50%, #0d0000 100%) fixed;
   background-attachment: fixed;
   color: var(--text-light);

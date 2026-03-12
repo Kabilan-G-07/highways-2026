@@ -878,6 +878,10 @@ body.menu-open {
   background: radial-gradient(circle at center, rgba(var(--accent-color-rgb, 239, 35, 60), 0.1) 0%, var(--bg-main) 100%);
 }
 
+.home-page .hero {
+  padding: 0;
+}
+
 .hero::before {
   content: '';
   position: absolute;
@@ -904,6 +908,14 @@ body.menu-open {
   max-width: 1400px;
   margin: 0 auto;
   text-align: center;
+}
+
+.home-hero-content {
+  min-height: 100vh;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-top: 7.5rem;
+  padding-bottom: 4rem;
 }
 
 .hero-main-branding {
@@ -2592,6 +2604,16 @@ section.reveal-active::after {
     min-height: 100vh;
     display: flex;
     align-items: center;
+  }
+
+  .home-page .hero {
+    padding: 0;
+  }
+
+  .home-hero-content {
+    min-height: 100svh;
+    padding-top: 6.5rem;
+    padding-bottom: 3rem;
   }
 
   .hero-title-main {

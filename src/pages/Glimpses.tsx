@@ -1,126 +1,69 @@
+import React from 'react';
+import { glimpsesImages } from '../data/glimpsesData';
+
 const Glimpses = () => {
-    const years = [
-        {
-            year: "23",
-            fullName: "Highways 2023",
-            images: ['2.webp', '4.webp', '6.webp', '8.webp', '9.webp', '10.webp', '11.webp', '12.webp', '13.webp', '14.webp', '15.webp', '16.webp', '17.webp', '18.webp', '19.webp']
-        },
-        {
-            year: "24",
-            fullName: "Highways 2024",
-            images: ['1.webp', '3.webp', '5.webp', '7.webp']
-        },
-        {
-            year: "25",
-            fullName: "Highways 2025",
-            images: ['20.webp', '21.webp', '22.webp', '23.webp', '24.webp', '25.webp', '26.webp', '27.webp', '28.webp', '29.webp', '30.webp', '31.webp', '32.webp', '33.webp']
-        }
+    // Split images into 3 groups for the 3 rows
+    const rowCount = 3;
+    const imagesPerRow = Math.ceil(glimpsesImages.length / rowCount);
+    
+    // Create 3 varied rows
+    const rows = [
+        glimpsesImages.slice(0, imagesPerRow),
+        [...glimpsesImages.slice(imagesPerRow, imagesPerRow * 2)].reverse(), // Reverse one row for variety
+        glimpsesImages.slice(imagesPerRow * 2)
     ];
 
     return (
         <section id="glimpses" className="glimpses-section" style={{ paddingTop: '180px', paddingBottom: '150px', background: '#030303', position: 'relative', overflow: 'hidden' }}>
             <div className="section-header" style={{ textAlign: 'center', marginBottom: '100px', position: 'relative', zIndex: 10 }}>
-                <span style={{ color: '#ffb7c5', fontSize: '1rem', fontWeight: 900, letterSpacing: '12px', textTransform: 'uppercase', display: 'block', marginBottom: '1.5rem' }}>THE CHRONICLES</span>
+                <span style={{ color: '#ffb7c5', fontSize: '1rem', fontWeight: 900, letterSpacing: '12px', textTransform: 'uppercase', display: 'block', marginBottom: '1.5rem' }}>THE RECOLLECTIONS</span>
                 <h2 className="section-title center" style={{ fontSize: 'clamp(4rem, 10vw, 8rem)', fontWeight: 950, color: 'white', letterSpacing: '-5px', textTransform: 'uppercase', lineHeight: 0.8 }}>PAST <span style={{ color: '#ffb7c5' }}>GLIMPSES</span></h2>
             </div>
             
-            {years.map((yearGroup, index) => (
-                <div key={index} className="glimpses-year-row" style={{ marginBottom: '60px', position: 'relative' }}>
-                    <div className="year-label-side" style={{ 
-                        position: 'absolute', 
-                        left: '5%', 
-                        top: '50%', 
-                        transform: 'translateY(-50%)', 
-                        zIndex: 20,
-                        background: 'rgba(3,3,3,0.8)',
-                        backdropFilter: 'blur(10px)',
-                        padding: '10px 30px',
-                        borderRadius: '100px',
-                        border: '1px solid rgba(255,255,255,0.1)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '15px'
-                    }}>
-                        <span style={{ fontSize: '0.8rem', fontWeight: 900, color: '#ffb7c5', letterSpacing: '3px' }}>HIGHWAYS</span>
-                        <span style={{ fontSize: '1.8rem', fontWeight: 950, color: 'white' }}>'{yearGroup.year}</span>
-                    </div>
-
-                    <div className="glimpses-ticker" style={{ overflow: 'hidden', padding: '20px 0' }}>
-                        <div className={`ticker-track ${index % 2 === 0 ? 'ltr' : 'rtl'}`} style={{ 
+            <div className="glimpses-rows-container" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                {rows.map((rowImages, index) => (
+                    <div key={index} className="glimpses-ticker" style={{ overflow: 'hidden' }}>
+                        <div className="ticker-track" style={{ 
                             display: 'flex', 
-                            gap: '20px', 
+                            gap: '15px', 
                             width: 'max-content',
-                            animation: `${index % 2 === 0 ? 'scroll-ltr' : 'scroll-rtl'} 60s linear infinite`
+                            animation: `scroll-ltr 50s linear infinite`
                         }}>
                             {/* Duplicate images multiple times for seamless infinity */}
-                            {[...yearGroup.images, ...yearGroup.images, ...yearGroup.images].map((img, i) => (
+                            {[...rowImages, ...rowImages, ...rowImages, ...rowImages].map((img, i) => (
                                 <div key={i} className="glimpse-card" style={{ 
-                                    width: '350px', 
-                                    height: '220px', 
-                                    borderRadius: '20px', 
+                                    width: '300px', 
+                                    height: '300px', 
+                                    borderRadius: '0', 
                                     overflow: 'hidden',
                                     flexShrink: 0,
                                     border: '1px solid rgba(255,255,255,0.05)',
-                                    transition: 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)',
+                                    transition: 'border-color 0.4s ease',
                                     position: 'relative',
-                                    cursor: 'pointer'
+                                    cursor: 'pointer',
+                                    background: '#080808'
                                 }}>
-                                    <img src={`/assets/glimpses/Highways ${yearGroup.year}/${img}`} alt={`${yearGroup.fullName} Moment`} loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(0.3) brightness(0.8)' }} />
-                                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.5), transparent)', opacity: 0.6 }}></div>
+                                    <img src={`/assets/glimpses/${img}`} alt="Highways Moment" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                                    <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.1)' }}></div>
                                 </div>
                             ))}
                         </div>
                     </div>
-
-                    {/* Watermark Year Background */}
-                    <div style={{ 
-                        position: 'absolute', 
-                        right: '10%', 
-                        top: '50%', 
-                        transform: 'translateY(-50%)', 
-                        fontSize: '15vw', 
-                        fontWeight: 950, 
-                        color: 'rgba(255,255,255,0.02)', 
-                        pointerEvents: 'none',
-                        zIndex: 1,
-                        letterSpacing: '-10px'
-                    }}>20{yearGroup.year}</div>
-                </div>
-            ))}
+                ))}
+            </div>
 
             <style>{`
                 @keyframes scroll-ltr {
                     0% { transform: translateX(0); }
-                    100% { transform: translateX(calc(-33.33% - 10px)); }
-                }
-                @keyframes scroll-rtl {
-                    0% { transform: translateX(calc(-33.33% - 10px)); }
-                    100% { transform: translateX(0); }
+                    100% { transform: translateX(calc(-25% - 3.75px)); }
                 }
                 .glimpse-card:hover {
-                    transform: scale(1.05) translateY(-10px);
                     border-color: #ffb7c5;
-                    box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 20px rgba(255,183,197,0.2);
-                    z-index: 100 !important;
-                }
-                .glimpse-card:hover img {
-                    filter: grayscale(0) brightness(1) !important;
-                }
-                .glimpses-year-row:hover .year-label-side {
-                    border-color: #ffb7c5;
-                    box-shadow: 0 0 30px rgba(255,183,197,0.3);
+                    z-index: 10;
                 }
                 
                 @media (max-width: 768px) {
-                    .year-label-side {
-                        left: 50% !important;
-                        top: -20px !important;
-                        transform: translateX(-50%) !important;
-                        padding: 8px 20px !important;
-                    }
-                    .year-label-side span:first-child { font-size: 0.6rem !important; }
-                    .year-label-side span:last-child { font-size: 1.2rem !important; }
-                    .glimpse-card { width: 250px !important; height: 160px !important; }
+                    .glimpse-card { width: 200px !important; height: 200px !important; }
                     .section-header h2 { font-size: 3rem !important; }
                 }
             `}</style>

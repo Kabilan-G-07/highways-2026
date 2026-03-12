@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './LoadingScreen.css';
+import { teamData } from '../data/teamData';
+import { glimpsesImages } from '../data/glimpsesData';
 
 const LoadingScreen: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -13,22 +15,10 @@ const LoadingScreen: React.FC = () => {
   useEffect(() => {
     // List of critical assets to preload
     const essentialAssets = [
-      // Logos
       '/assets/logos/highways-logo.webp',
       '/assets/logos/svce-logo.webp',
-      // Team Leads
-      '/members/Arivunithi R  - ARIVUNITHI R CSE.webp',
-      '/members/IMG_9669 (1) - ASHISH S CSE.webp',
-      '/members/Ashwin 1 - ASHWIN R ECE.webp',
-      '/members/Balakrishnan.webp',
-      '/members/KS Bharath - Sponsorship Lead - 007 BHARATH KS MN.webp',
-      '/members/Rushil-Member_Operations - RUSHIL P BIO.webp',
-      // Glimpses 2023
-      ...['2', '4', '6', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19'].map(n => `/assets/glimpses/Highways 23/${n}.webp`),
-      // Glimpses 2024
-      ...['1', '3', '5', '7'].map(n => `/assets/glimpses/Highways 24/${n}.webp`),
-      // Glimpses 2025
-      ...['20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33'].map(n => `/assets/glimpses/Highways 25/${n}.webp`)
+      ...teamData.flatMap(group => group.members.map(m => m.image)),
+      ...glimpsesImages.map(img => `/assets/glimpses/${img}`)
     ];
 
     let loadedCount = 0;
@@ -130,7 +120,6 @@ const LoadingScreen: React.FC = () => {
             <p className="loader-status" style={{ margin: 0 }}>INITIALIZING EXPERIENCE</p>
             <p className="loader-status" style={{ margin: 0, color: '#ff4d4d' }}>{progress}%</p>
         </div>
-        <div className="loader-hint">CLICK TO RIPPLE • MOVE TO GLOW</div>
       </div>
 
       <div className="grain-overlay"></div>

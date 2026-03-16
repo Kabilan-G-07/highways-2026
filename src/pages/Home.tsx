@@ -152,8 +152,7 @@ const Home = () => {
                             {[
                                 { id: 1, type: "GUEST", hint: "" },
                                 { id: 2, type: "GUEST", hint: "" },
-                                { id: 3, type: "GUEST", hint: "" },
-                                { id: 4, type: "GUEST", hint: "" }
+                                { id: 3, type: "GUEST", hint: "" }
                             ].map(celeb => (
                                 <motion.div
                                     key={celeb.id}

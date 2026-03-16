@@ -4,7 +4,7 @@ const Celebrities = () => {
             <div className="container">
                 <h2 className="section-title center">CELEBRITY GUESTS</h2>
                 <div className="celebrity-grid">
-                    {[1, 2, 3, 4].map(i => (
+                    {[1, 2, 3].map(i => (
                         <div key={i} className="celebrity-card">
                             <div className="celeb-image-placeholder">
                                 <span className="mystery-mark">?</span>

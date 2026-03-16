@@ -46,7 +46,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Curtain Call Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Curtain Call Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 2,
@@ -69,7 +74,12 @@ const allEvents: EventDetail[] = [
     "regType": "Premium",
     "regFee": "₹400/Team",
     "teamSize": "Group",
-    "pocs": [{ "name": "Curtain Call Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Curtain Call Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 3,
@@ -91,7 +101,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Curtain Call Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Curtain Call Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 4,
@@ -113,7 +128,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Curtain Call Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Curtain Call Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 5,
@@ -135,7 +155,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Reading Club Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Reading Club Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 6,
@@ -157,7 +182,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Reading Club Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Reading Club Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 7,
@@ -165,7 +195,7 @@ const allEvents: EventDetail[] = [
     "category": "Tech",
     "day": 1,
     "date": "April 9, 2026",
-    "time": "10:00 AM",
+    "time": "Full Day",
     "location": "CB513",
     "color": "#ffb7c5",
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000",
@@ -180,7 +210,12 @@ const allEvents: EventDetail[] = [
     "regType": "Standard",
     "regFee": "₹50/Person",
     "teamSize": "Solo",
-    "pocs": [{ "name": "EWB Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "EWB Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 8,
@@ -188,7 +223,7 @@ const allEvents: EventDetail[] = [
     "category": "Tech",
     "day": 2,
     "date": "April 10, 2026",
-    "time": "10:00 AM",
+    "time": "Full Day",
     "location": "CB 304",
     "color": "#ffb7c5",
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000",
@@ -202,7 +237,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "EWB Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "EWB Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 9,
@@ -210,7 +250,7 @@ const allEvents: EventDetail[] = [
     "category": "Tech",
     "day": 1,
     "date": "April 9, 2026",
-    "time": "10:00 AM",
+    "time": "Full Day",
     "location": "CB515 & CB516",
     "color": "#ffb7c5",
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000",
@@ -224,7 +264,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "ISTD Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "ISTD Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 10,
@@ -232,7 +277,7 @@ const allEvents: EventDetail[] = [
     "category": "Tech",
     "day": 2,
     "date": "April 10, 2026",
-    "time": "10:00 AM",
+    "time": "Full Day",
     "location": "CB515 & CB516",
     "color": "#ffb7c5",
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000",
@@ -246,7 +291,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "ISTD Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "ISTD Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 11,
@@ -254,7 +304,7 @@ const allEvents: EventDetail[] = [
     "category": "Social",
     "day": 1,
     "date": "April 9, 2026",
-    "time": "10:00 AM",
+    "time": "Full Day",
     "location": "CB501, 507 & 508",
     "color": "#ffb7c5",
     "image": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1000",
@@ -268,7 +318,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "RRC Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "RRC Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 12,
@@ -291,7 +346,12 @@ const allEvents: EventDetail[] = [
     "regType": "Standard",
     "regFee": "₹200",
     "teamSize": "Solo",
-    "pocs": [{ "name": "RRC Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "RRC Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 13,
@@ -313,7 +373,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "RRC Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "RRC Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 14,
@@ -335,7 +400,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Speakers Forum Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Speakers Forum Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 15,
@@ -358,7 +428,12 @@ const allEvents: EventDetail[] = [
     "regType": "Premium",
     "regFee": "₹100/Person",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Speakers Forum Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Speakers Forum Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 16,
@@ -381,7 +456,12 @@ const allEvents: EventDetail[] = [
     "regType": "Standard",
     "regFee": "₹30/Person",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Shortfilm Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Shortfilm Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 17,
@@ -389,7 +469,7 @@ const allEvents: EventDetail[] = [
     "category": "Media",
     "day": 2,
     "date": "April 10, 2026",
-    "time": "10:00 AM",
+    "time": "Full Day",
     "location": "CB521",
     "color": "#ffb7c5",
     "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1000",
@@ -403,7 +483,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Shortfilm Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Shortfilm Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 18,
@@ -426,7 +511,12 @@ const allEvents: EventDetail[] = [
     "regType": "Premium",
     "regFee": "₹200",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Shortfilm Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Shortfilm Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 19,
@@ -434,7 +524,7 @@ const allEvents: EventDetail[] = [
     "category": "Cultural",
     "day": 1,
     "date": "April 9, 2026",
-    "time": "10:00 AM",
+    "time": "Full Day",
     "location": "CB504 & CB505",
     "color": "#ffb7c5",
     "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1000",
@@ -448,7 +538,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Tamil Mandram Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Tamil Mandram Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 20,
@@ -471,7 +566,12 @@ const allEvents: EventDetail[] = [
     "regType": "Standard",
     "regFee": "₹50/Team",
     "teamSize": "Group",
-    "pocs": [{ "name": "Tamil Mandram Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Tamil Mandram Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 21,
@@ -479,7 +579,7 @@ const allEvents: EventDetail[] = [
     "category": "Cultural",
     "day": 3,
     "date": "April 11, 2026",
-    "time": "10:00 AM",
+    "time": "Full Day",
     "location": "CB504 & CB505",
     "color": "#ffb7c5",
     "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1000",
@@ -493,7 +593,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Tamil Mandram Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Tamil Mandram Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 22,
@@ -516,7 +621,12 @@ const allEvents: EventDetail[] = [
     "regType": "Premium",
     "regFee": "₹150/Team",
     "teamSize": "Group",
-    "pocs": [{ "name": "ECell Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "ECell Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 23,
@@ -539,7 +649,12 @@ const allEvents: EventDetail[] = [
     "regType": "Standard",
     "regFee": "₹75/Team",
     "teamSize": "Group",
-    "pocs": [{ "name": "ECell Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "ECell Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 24,
@@ -562,7 +677,12 @@ const allEvents: EventDetail[] = [
     "regType": "Standard",
     "regFee": "₹75/Team",
     "teamSize": "Group",
-    "pocs": [{ "name": "ECell Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "ECell Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 25,
@@ -585,7 +705,12 @@ const allEvents: EventDetail[] = [
     "regType": "Standard",
     "regFee": "₹100/Team",
     "teamSize": "Group",
-    "pocs": [{ "name": "Photo Club Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Photo Club Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 26,
@@ -608,7 +733,12 @@ const allEvents: EventDetail[] = [
     "regType": "Standard",
     "regFee": "₹50/Person",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Photo Club Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Photo Club Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 27,
@@ -631,7 +761,12 @@ const allEvents: EventDetail[] = [
     "regType": "Standard",
     "regFee": "₹100/Team",
     "teamSize": "Group",
-    "pocs": [{ "name": "Science Club Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Science Club Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 28,
@@ -653,7 +788,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Science Club Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Science Club Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 29,
@@ -675,7 +815,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Science Club Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Science Club Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 30,
@@ -698,7 +843,12 @@ const allEvents: EventDetail[] = [
     "regType": "Standard",
     "regFee": "₹200",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Care Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Care Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 31,
@@ -720,7 +870,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Care Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Care Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 32,
@@ -743,7 +898,12 @@ const allEvents: EventDetail[] = [
     "regType": "Premium",
     "regFee": "₹200",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Care Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Care Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 33,
@@ -751,7 +911,7 @@ const allEvents: EventDetail[] = [
     "category": "Social",
     "day": 1,
     "date": "April 9, 2026",
-    "time": "10:00 AM",
+    "time": "Full Day",
     "location": "CB536",
     "color": "#ffb7c5",
     "image": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1000",
@@ -765,7 +925,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Rotaract Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Rotaract Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 34,
@@ -773,7 +938,7 @@ const allEvents: EventDetail[] = [
     "category": "Social",
     "day": 2,
     "date": "April 10, 2026",
-    "time": "10:00 AM",
+    "time": "Full Day",
     "location": "Block 5 (3rd Floor) & (Ground Floor Area)",
     "color": "#ffb7c5",
     "image": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1000",
@@ -787,7 +952,12 @@ const allEvents: EventDetail[] = [
     "prizePool": "TBA",
     "regType": "Free",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Rotaract Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Rotaract Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 35,
@@ -795,7 +965,7 @@ const allEvents: EventDetail[] = [
     "category": "Music",
     "day": 1,
     "date": "April 9, 2026",
-    "time": "10:00 AM",
+    "time": "Full Day",
     "location": "MPH",
     "color": "#00d2ff",
     "image": "https://images.unsplash.com/photo-1514525253361-bee8d48700df?q=80&w=1000",
@@ -810,7 +980,12 @@ const allEvents: EventDetail[] = [
     "regType": "Premium",
     "regFee": "₹1000/Team",
     "teamSize": "Group",
-    "pocs": [{ "name": "Music Club Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Music Club Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 36,
@@ -833,7 +1008,12 @@ const allEvents: EventDetail[] = [
     "regType": "Premium",
     "regFee": "₹250/Person",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Music Club Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Music Club Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 37,
@@ -856,7 +1036,12 @@ const allEvents: EventDetail[] = [
     "regType": "Premium",
     "regFee": "₹150/Person",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Dance Club Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Dance Club Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 38,
@@ -879,7 +1064,12 @@ const allEvents: EventDetail[] = [
     "regType": "Premium",
     "regFee": "₹150/Person",
     "teamSize": "Solo",
-    "pocs": [{ "name": "Dance Club Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Dance Club Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 39,
@@ -902,7 +1092,12 @@ const allEvents: EventDetail[] = [
     "regType": "Premium",
     "regFee": "₹1000/Team",
     "teamSize": "Group",
-    "pocs": [{ "name": "Dance Club Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Dance Club Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   },
   {
     "id": 40,
@@ -925,7 +1120,12 @@ const allEvents: EventDetail[] = [
     "regType": "Premium",
     "regFee": "₹400/Team",
     "teamSize": "Group",
-    "pocs": [{ "name": "Dance Club Team", "phone": "Available at Helpdesk" }]
+    "pocs": [
+      {
+        "name": "Dance Club Team",
+        "phone": "Available at Helpdesk"
+      }
+    ]
   }
 ];
 
@@ -1073,10 +1273,12 @@ const EventModal = ({ event, isOpen, onClose }: { event: EventDetail | null, isO
                                 </ul>
                             </div>
 
-                            <div style={{ marginBottom: '3rem', background: `linear-gradient(45deg, ${event.color}22, transparent)`, padding: '2rem', borderRadius: '24px', borderLeft: `4px solid ${event.color}` }}>
-                                <h4 style={{ color: 'white', fontSize: '0.8rem', fontWeight: 900, letterSpacing: '2px', marginBottom: '0.5rem' }}>TOTAL PRIZE POOL</h4>
-                                <p style={{ fontSize: '2.5rem', fontWeight: 950, color: 'white' }}>{event.prizePool}</p>
-                            </div>
+                            {event.regType !== 'Free' && (
+                                <div style={{ marginBottom: '3rem', background: `linear-gradient(45deg, ${event.color}22, transparent)`, padding: '2rem', borderRadius: '24px', borderLeft: `4px solid ${event.color}` }}>
+                                    <h4 style={{ color: 'white', fontSize: '0.8rem', fontWeight: 900, letterSpacing: '2px', marginBottom: '0.5rem' }}>TOTAL PRIZE POOL</h4>
+                                    <p style={{ fontSize: '2.5rem', fontWeight: 950, color: 'white' }}>{event.prizePool}</p>
+                                </div>
+                            )}
 
                             <div style={{ marginBottom: '3rem' }}>
                                 <h4 style={{ color: event.color, fontSize: '0.8rem', fontWeight: 900, letterSpacing: '2px', marginBottom: '1rem' }}>CONTACT ORGANIZERS</h4>
@@ -1179,7 +1381,7 @@ const BackgroundElements = ({ themeColor, activeKanji, dayId }: { themeColor: st
 };
 
 const Events = () => {
-    const isLocked = true;
+    const isLocked = false;
     const [filter, setFilter] = useState({ category: "All", day: 1 });
     const { scrollY } = useScroll();
     const yHero = useTransform(scrollY, [0, 500], [0, -120]);

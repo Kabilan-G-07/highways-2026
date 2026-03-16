@@ -1,16 +1,21 @@
+import { useMemo } from 'react';
 import { glimpsesImages } from '../data/glimpsesData';
 
 const Glimpses = () => {
     // Split images into 3 groups for the 3 rows
     const rowCount = 3;
-    const imagesPerRow = Math.ceil(glimpsesImages.length / rowCount);
     
-    // Create 3 varied rows
-    const rows = [
-        glimpsesImages.slice(0, imagesPerRow),
-        [...glimpsesImages.slice(imagesPerRow, imagesPerRow * 2)].reverse(), // Reverse one row for variety
-        glimpsesImages.slice(imagesPerRow * 2)
-    ];
+    // Create 3 varied rows with shuffled images
+    const rows = useMemo(() => {
+        const shuffled = [...glimpsesImages].sort(() => Math.random() - 0.5);
+        const imagesPerRow = Math.ceil(shuffled.length / rowCount);
+        
+        return [
+            shuffled.slice(0, imagesPerRow),
+            shuffled.slice(imagesPerRow, imagesPerRow * 2),
+            shuffled.slice(imagesPerRow * 2)
+        ];
+    }, []);
 
     return (
         <section id="glimpses" className="glimpses-section" style={{ paddingTop: '180px', paddingBottom: '150px', background: '#030303', position: 'relative', overflow: 'hidden' }}>
@@ -26,7 +31,7 @@ const Glimpses = () => {
                             display: 'flex', 
                             gap: '15px', 
                             width: 'max-content',
-                            animation: `scroll-ltr 50s linear infinite`
+                            animation: `scroll-ltr ${rowImages.length * 2.5}s linear infinite`
                         }}>
                             {/* Duplicate images multiple times for seamless infinity */}
                             {[...rowImages, ...rowImages, ...rowImages, ...rowImages].map((img, i) => (

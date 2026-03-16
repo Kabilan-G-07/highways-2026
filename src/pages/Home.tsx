@@ -107,8 +107,15 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* ABOUT SECTION */}
-            <section id="about" className="about-section world-white" style={{ padding: '100px 0' }}>
+            {/* WRAPPER FOR ABOUT AND CELEBRITIES TO ADD A BRIGHTER BACKGROUND */}
+            <div style={{
+                background: 'linear-gradient(to bottom, rgba(15,15,15,0.8), rgba(20,20,20,0.85)), url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2000&auto=format&fit=crop")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundAttachment: 'fixed'
+            }}>
+                {/* ABOUT SECTION */}
+                <section id="about" className="about-section world-white" style={{ padding: '100px 0' }}>
                 <div className="container">
                     <div className="about-flex">
                         <div className="about-text">
@@ -130,21 +137,22 @@ const Home = () => {
                     <h2 className="section-title center">CELEBRITY GUESS</h2>
                     <div className="celebrity-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginTop: '50px' }}>
                         {[
-                            { id: 1, type: "ACTOR", hint: "From the blockbusters of Tamil Cinema" },
-                            { id: 2, type: "SINGER", hint: "The voice that stole a million hearts" },
-                            { id: 3, type: "COMEDIAN", hint: "Laughter is coming to SVCE" },
-                            { id: 4, type: "GUEST", hint: "A legend in the making" }
+                            { id: 1, type: "GUEST", hint: "" },
+                            { id: 2, type: "GUEST", hint: "" },
+                            { id: 3, type: "GUEST", hint: "" },
+                            { id: 4, type: "GUEST", hint: "" }
                         ].map(celeb => (
                             <motion.div
                                 key={celeb.id}
                                 whileHover={{ scale: 1.05 }}
                                 className="celebrity-card-premium"
                                 style={{
-                                    background: 'rgba(255,255,255,0.03)',
+                                    background: 'rgba(255,255,255,0.05)',
                                     borderRadius: '30px',
                                     padding: '40px 20px',
                                     textAlign: 'center',
-                                    border: '1px solid rgba(255,255,255,0.05)',
+                                    border: '2px solid rgba(255, 77, 77, 0.4)',
+                                    boxShadow: '0 0 25px rgba(255, 77, 77, 0.3)',
                                     position: 'relative',
                                     overflow: 'hidden',
                                     cursor: 'pointer'
@@ -181,6 +189,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+            </div>
 
             {/* GLIMPSES SECTION */}
             <Glimpses />

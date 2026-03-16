@@ -260,6 +260,7 @@ html {
   cursor: auto;
   font-size: 16px;
   background: var(--bg-main);
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -288,6 +289,7 @@ html {
 *::before,
 *::after {
   cursor: auto;
+  box-sizing: border-box;
 }
 
 body {

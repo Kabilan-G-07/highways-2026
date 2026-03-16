@@ -25,13 +25,17 @@ const Glimpses = () => {
             </div>
             
             <div className="glimpses-rows-container" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                {rows.map((rowImages, index) => (
+                {rows.map((rowImages, index) => {
+                    // For first (index 0) and third (index 2) lines: move left to right (ltr)
+                    // For second (index 1) line: move right to left (rtl)
+                    const direction = index % 2 === 0 ? 'scroll-ltr' : 'scroll-rtl';
+                    return (
                     <div key={index} className="glimpses-ticker" style={{ overflow: 'hidden' }}>
                         <div className="ticker-track" style={{ 
                             display: 'flex', 
                             gap: '15px', 
                             width: 'max-content',
-                            animation: `scroll-ltr ${rowImages.length * 2.5}s linear infinite`
+                            animation: `${direction} ${rowImages.length * 2.5}s linear infinite`
                         }}>
                             {/* Duplicate images multiple times for seamless infinity */}
                             {[...rowImages, ...rowImages, ...rowImages, ...rowImages].map((img, i) => (
@@ -53,11 +57,15 @@ const Glimpses = () => {
                             ))}
                         </div>
                     </div>
-                ))}
+                )})}
             </div>
 
             <style>{`
                 @keyframes scroll-ltr {
+                    0% { transform: translateX(calc(-25% - 3.75px)); }
+                    100% { transform: translateX(0); }
+                }
+                @keyframes scroll-rtl {
                     0% { transform: translateX(0); }
                     100% { transform: translateX(calc(-25% - 3.75px)); }
                 }

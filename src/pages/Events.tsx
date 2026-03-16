@@ -29,7 +29,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 1,
     "title": "Shoot and Broadcast",
-    "category": "Drama",
+    "category": "Curtain Call",
     "day": 1,
     "date": "April 9, 2026",
     "time": "10:00 AM",
@@ -48,20 +48,20 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Curtain Call Team",
-        "phone": "Available at Helpdesk"
+        "name": "Akshaya",
+        "phone": "9042476961"
       }
     ]
   },
   {
     "id": 2,
     "title": "Mime",
-    "category": "Drama",
+    "category": "Curtain Call",
     "day": 2,
     "date": "April 10, 2026",
     "time": "10:00 AM",
     "location": "MPH",
-    "color": "#ffb7c5",
+    "color": "#f8f8ff",
     "image": "https://images.unsplash.com/photo-1541179619977-1b0394018282?q=80&w=1000",
     "description": "Focusing on Mime, this Curtain Call event brings together the best minds for Highways'26.",
     "rules": [
@@ -76,15 +76,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Group",
     "pocs": [
       {
-        "name": "Curtain Call Team",
-        "phone": "Available at Helpdesk"
+        "name": "Mahathi",
+        "phone": "9840988831"
       }
     ]
   },
   {
     "id": 3,
-    "title": "Adzap",
-    "category": "Drama",
+    "title": "ADZAP",
+    "category": "Curtain Call",
     "day": 3,
     "date": "April 11, 2026",
     "time": "10:00 AM",
@@ -103,15 +103,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Curtain Call Team",
-        "phone": "Available at Helpdesk"
+        "name": "Sreenidhi",
+        "phone": "6385568214"
       }
     ]
   },
   {
     "id": 4,
     "title": "Freeze Frame",
-    "category": "Drama",
+    "category": "Curtain Call",
     "day": 3,
     "date": "April 11, 2026",
     "time": "02:00 PM",
@@ -130,15 +130,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Curtain Call Team",
-        "phone": "Available at Helpdesk"
+        "name": "Janani",
+        "phone": "9840988831"
       }
     ]
   },
   {
     "id": 5,
     "title": "IPL Auction",
-    "category": "Speech",
+    "category": "Reading Club",
     "day": 1,
     "date": "April 9, 2026",
     "time": "10:00 AM",
@@ -157,15 +157,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Reading Club Team",
-        "phone": "Available at Helpdesk"
+        "name": "Buvanesh Raaj",
+        "phone": "9962371662"
       }
     ]
   },
   {
     "id": 6,
     "title": "Sorting Hat Conspiracy",
-    "category": "Speech",
+    "category": "Reading Club",
     "day": 3,
     "date": "April 11, 2026",
     "time": "10:00 AM",
@@ -184,15 +184,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Reading Club Team",
-        "phone": "Available at Helpdesk"
+        "name": "Hannah",
+        "phone": "7305066339"
       }
     ]
   },
   {
     "id": 7,
-    "title": "Trust the Process",
-    "category": "Tech",
+    "title": "Reverse Pictionary",
+    "category": "EWB",
     "day": 1,
     "date": "April 9, 2026",
     "time": "Full Day",
@@ -212,20 +212,20 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "EWB Team",
-        "phone": "Available at Helpdesk"
+        "name": "Gayathri",
+        "phone": "8838060188"
       }
     ]
   },
   {
     "id": 8,
-    "title": "Chaos Director",
-    "category": "Tech",
+    "title": "Jagdish On A Mission",
+    "category": "EWB",
     "day": 2,
     "date": "April 10, 2026",
     "time": "Full Day",
     "location": "CB 304",
-    "color": "#ffb7c5",
+    "color": "#f8f8ff",
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000",
     "description": "Focusing on Chaos Director, this EWB event brings together the best minds for Highways'26.",
     "rules": [
@@ -239,15 +239,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "EWB Team",
-        "phone": "Available at Helpdesk"
+        "name": "Mariam",
+        "phone": "7305711022"
       }
     ]
   },
   {
     "id": 9,
-    "title": "Who the sus",
-    "category": "Tech",
+    "title": "Who's the sus",
+    "category": "ISTD",
     "day": 1,
     "date": "April 9, 2026",
     "time": "Full Day",
@@ -266,20 +266,20 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "ISTD Team",
-        "phone": "Available at Helpdesk"
+        "name": "Tamizh Selvan",
+        "phone": "93425 97576"
       }
     ]
   },
   {
     "id": 10,
     "title": "Money moves in your hand",
-    "category": "Tech",
+    "category": "ISTD",
     "day": 2,
     "date": "April 10, 2026",
     "time": "Full Day",
     "location": "CB515 & CB516",
-    "color": "#ffb7c5",
+    "color": "#f8f8ff",
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000",
     "description": "Focusing on Money moves in your hand, this ISTD event brings together the best minds for Highways'26.",
     "rules": [
@@ -293,15 +293,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "ISTD Team",
-        "phone": "Available at Helpdesk"
+        "name": "Rasiga",
+        "phone": "95002 40988"
       }
     ]
   },
   {
     "id": 11,
-    "title": "Scavenger Hunt",
-    "category": "Social",
+    "title": "Treasure Hunt",
+    "category": "RRC",
     "day": 1,
     "date": "April 9, 2026",
     "time": "Full Day",
@@ -320,20 +320,20 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "RRC Team",
-        "phone": "Available at Helpdesk"
+        "name": "Jegatheesh",
+        "phone": "9042685575"
       }
     ]
   },
   {
     "id": 12,
     "title": "Mystry Box challenge",
-    "category": "Social",
+    "category": "RRC",
     "day": 2,
     "date": "April 10, 2026",
     "time": "10:00 AM",
     "location": "CB311 & CB314",
-    "color": "#ffb7c5",
+    "color": "#f8f8ff",
     "image": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1000",
     "description": "Focusing on Mystry Box challenge, this RRC event brings together the best minds for Highways'26.",
     "rules": [
@@ -348,15 +348,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "RRC Team",
-        "phone": "Available at Helpdesk"
+        "name": "Oviya",
+        "phone": "6383672435"
       }
     ]
   },
   {
     "id": 13,
     "title": "Human Knot",
-    "category": "Social",
+    "category": "RRC",
     "day": 3,
     "date": "April 11, 2026",
     "time": "10:00 AM",
@@ -375,15 +375,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "RRC Team",
-        "phone": "Available at Helpdesk"
+        "name": "Sakthi Purushuthaman",
+        "phone": "7305940418"
       }
     ]
   },
   {
     "id": 14,
     "title": "Channel Surfing",
-    "category": "Speech",
+    "category": "Speakers Forum",
     "day": 1,
     "date": "April 9, 2026",
     "time": "10:00 AM",
@@ -402,15 +402,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Speakers Forum Team",
-        "phone": "Available at Helpdesk"
+        "name": "Shawn Abraham",
+        "phone": "9345985157"
       }
     ]
   },
   {
     "id": 15,
-    "title": "Survival of the fittest",
-    "category": "Speech",
+    "title": "Shipwreck",
+    "category": "Speakers Forum",
     "day": 1,
     "date": "April 9, 2026",
     "time": "10:00 AM",
@@ -430,15 +430,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Speakers Forum Team",
-        "phone": "Available at Helpdesk"
+        "name": "Shawn Abraham",
+        "phone": "9345985157"
       }
     ]
   },
   {
     "id": 16,
     "title": "Movie Screening",
-    "category": "Media",
+    "category": "Shortfilm",
     "day": 3,
     "date": "April 11, 2026",
     "time": "10:00 AM",
@@ -458,20 +458,28 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Shortfilm Team",
-        "phone": "Available at Helpdesk"
+        "name": "Ashwin (day 1)",
+        "phone": "98844 11202"
+      },
+      {
+        "name": "Jayasuriya(day 2)",
+        "phone": "877 899 4503"
+      },
+      {
+        "name": "Shamritha (day 3)",
+        "phone": "98840 36973"
       }
     ]
   },
   {
     "id": 17,
     "title": "Cinequest",
-    "category": "Media",
+    "category": "Shortfilm",
     "day": 2,
     "date": "April 10, 2026",
     "time": "Full Day",
     "location": "CB521",
-    "color": "#ffb7c5",
+    "color": "#f8f8ff",
     "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1000",
     "description": "Focusing on Cinequest, this Shortfilm event brings together the best minds for Highways'26.",
     "rules": [
@@ -485,15 +493,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Shortfilm Team",
-        "phone": "Available at Helpdesk"
+        "name": "Cinequest Team",
+        "phone": "89253 10269"
       }
     ]
   },
   {
     "id": 18,
     "title": "Short Film contest",
-    "category": "Media",
+    "category": "Shortfilm",
     "day": 3,
     "date": "April 11, 2026",
     "time": "02:00 PM",
@@ -513,15 +521,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Shortfilm Team",
-        "phone": "Available at Helpdesk"
+        "name": "Sai Krishna",
+        "phone": "7397365289"
       }
     ]
   },
   {
     "id": 19,
-    "title": "Mathi Yoshi",
-    "category": "Cultural",
+    "title": "Turncoat (Mathi Yosi)",
+    "category": "Tamil Mandram",
     "day": 1,
     "date": "April 9, 2026",
     "time": "Full Day",
@@ -540,20 +548,20 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Tamil Mandram Team",
-        "phone": "Available at Helpdesk"
+        "name": "Dharsan P",
+        "phone": "7358656668"
       }
     ]
   },
   {
     "id": 20,
     "title": "Thirai Suzhal",
-    "category": "Cultural",
+    "category": "Tamil Mandram",
     "day": 2,
     "date": "April 10, 2026",
     "time": "10:00 AM",
     "location": "CB504 & CB505",
-    "color": "#ffb7c5",
+    "color": "#f8f8ff",
     "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1000",
     "description": "Focusing on Thirai Suzhal, this Tamil Mandram event brings together the best minds for Highways'26.",
     "rules": [
@@ -568,15 +576,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Group",
     "pocs": [
       {
-        "name": "Tamil Mandram Team",
-        "phone": "Available at Helpdesk"
+        "name": "Subash Chandra Bose",
+        "phone": "8940454275"
       }
     ]
   },
   {
     "id": 21,
     "title": "Olunga Paadu illana sprey adichiduvan",
-    "category": "Cultural",
+    "category": "Tamil Mandram",
     "day": 3,
     "date": "April 11, 2026",
     "time": "Full Day",
@@ -595,15 +603,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Tamil Mandram Team",
-        "phone": "Available at Helpdesk"
+        "name": "Ramkishore",
+        "phone": "9566952026"
       }
     ]
   },
   {
     "id": 22,
     "title": "EPL",
-    "category": "Business",
+    "category": "ECell",
     "day": 1,
     "date": "April 9, 2026",
     "time": "10:00 AM",
@@ -623,20 +631,20 @@ const allEvents: EventDetail[] = [
     "teamSize": "Group",
     "pocs": [
       {
-        "name": "ECell Team",
-        "phone": "Available at Helpdesk"
+        "name": "Dimple",
+        "phone": "99516 61000"
       }
     ]
   },
   {
     "id": 23,
     "title": "Disasterpeneur",
-    "category": "Business",
+    "category": "ECell",
     "day": 2,
     "date": "April 10, 2026",
     "time": "02:00 PM",
     "location": "CB302",
-    "color": "#ffb7c5",
+    "color": "#f8f8ff",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000",
     "description": "Focusing on Disasterpeneur, this ECell event brings together the best minds for Highways'26.",
     "rules": [
@@ -651,15 +659,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Group",
     "pocs": [
       {
-        "name": "ECell Team",
-        "phone": "Available at Helpdesk"
+        "name": "Sudish",
+        "phone": "91501 95835"
       }
     ]
   },
   {
     "id": 24,
-    "title": "Start up war",
-    "category": "Business",
+    "title": "Startup War",
+    "category": "ECell",
     "day": 3,
     "date": "April 11, 2026",
     "time": "10:00 AM",
@@ -679,15 +687,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Group",
     "pocs": [
       {
-        "name": "ECell Team",
-        "phone": "Available at Helpdesk"
+        "name": "Abijith P",
+        "phone": "63749 97429"
       }
     ]
   },
   {
     "id": 25,
-    "title": "Shot on Highways",
-    "category": "Art",
+    "title": "Themed Photography",
+    "category": "Photo Club",
     "day": 1,
     "date": "April 9, 2026",
     "time": "Virtual",
@@ -707,15 +715,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Group",
     "pocs": [
       {
-        "name": "Photo Club Team",
-        "phone": "Available at Helpdesk"
+        "name": "Shreya",
+        "phone": "9445599760"
       }
     ]
   },
   {
     "id": 26,
     "title": "Frame by words",
-    "category": "Art",
+    "category": "Photo Club",
     "day": 1,
     "date": "April 9, 2026",
     "time": "10:00 AM",
@@ -735,15 +743,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Photo Club Team",
-        "phone": "Available at Helpdesk"
+        "name": "Raghav",
+        "phone": "63744 73882"
       }
     ]
   },
   {
     "id": 27,
     "title": "Otakumania",
-    "category": "Tech",
+    "category": "Science Club",
     "day": 1,
     "date": "April 9, 2026",
     "time": "10:00 AM",
@@ -763,20 +771,20 @@ const allEvents: EventDetail[] = [
     "teamSize": "Group",
     "pocs": [
       {
-        "name": "Science Club Team",
-        "phone": "Available at Helpdesk"
+        "name": "Nandhakumaran",
+        "phone": "93444 58074"
       }
     ]
   },
   {
     "id": 28,
     "title": "Greenscreen",
-    "category": "Tech",
+    "category": "Science Club",
     "day": 2,
     "date": "April 10, 2026",
     "time": "10:00 AM",
     "location": "CB322 & CB323",
-    "color": "#ffb7c5",
+    "color": "#f8f8ff",
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000",
     "description": "Focusing on Greenscreen, this Science Club event brings together the best minds for Highways'26.",
     "rules": [
@@ -790,15 +798,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Science Club Team",
-        "phone": "Available at Helpdesk"
+        "name": "Mohammed Faraaz",
+        "phone": "94459 33053"
       }
     ]
   },
   {
     "id": 29,
-    "title": "Powerplay Arena",
-    "category": "Tech",
+    "title": "Power Play Arena",
+    "category": "Science Club",
     "day": 3,
     "date": "April 11, 2026",
     "time": "10:00 AM",
@@ -817,15 +825,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Science Club Team",
-        "phone": "Available at Helpdesk"
+        "name": "Neha Ramganesh",
+        "phone": "98840 44954"
       }
     ]
   },
   {
     "id": 30,
     "title": "Tellus Abyss",
-    "category": "Social",
+    "category": "Care",
     "day": 1,
     "date": "April 9, 2026",
     "time": "10:00 AM",
@@ -853,12 +861,12 @@ const allEvents: EventDetail[] = [
   {
     "id": 31,
     "title": "Token Takeover",
-    "category": "Social",
+    "category": "Care",
     "day": 2,
     "date": "April 10, 2026",
     "time": "10:00 AM",
     "location": "CB526, CB527 & CB528",
-    "color": "#ffb7c5",
+    "color": "#f8f8ff",
     "image": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1000",
     "description": "Focusing on Token Takeover, this Care event brings together the best minds for Highways'26.",
     "rules": [
@@ -880,7 +888,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 32,
     "title": "Clash Troxphy",
-    "category": "Social",
+    "category": "Care",
     "day": 3,
     "date": "April 11, 2026",
     "time": "10:00 AM",
@@ -908,7 +916,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 33,
     "title": "Saregama",
-    "category": "Social",
+    "category": "Rotaract",
     "day": 1,
     "date": "April 9, 2026",
     "time": "Full Day",
@@ -927,20 +935,20 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Rotaract Team",
-        "phone": "Available at Helpdesk"
+        "name": "Manoj",
+        "phone": "6380693806"
       }
     ]
   },
   {
     "id": 34,
     "title": "The Royal Gambit",
-    "category": "Social",
+    "category": "Rotaract",
     "day": 2,
     "date": "April 10, 2026",
     "time": "Full Day",
     "location": "Block 5 (3rd Floor) & (Ground Floor Area)",
-    "color": "#ffb7c5",
+    "color": "#f8f8ff",
     "image": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1000",
     "description": "Focusing on The Royal Gambit, this Rotaract event brings together the best minds for Highways'26.",
     "rules": [
@@ -954,20 +962,20 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Rotaract Team",
-        "phone": "Available at Helpdesk"
+        "name": "Manoj",
+        "phone": "6380693806"
       }
     ]
   },
   {
     "id": 35,
     "title": "Overdrive",
-    "category": "Music",
+    "category": "Music Club",
     "day": 1,
     "date": "April 9, 2026",
     "time": "Full Day",
     "location": "MPH",
-    "color": "#00d2ff",
+    "color": "#f8f8ff",
     "image": "https://images.unsplash.com/photo-1514525253361-bee8d48700df?q=80&w=1000",
     "description": "Focusing on Overdrive, this Music Club event brings together the best minds for Highways'26.",
     "rules": [
@@ -990,12 +998,12 @@ const allEvents: EventDetail[] = [
   {
     "id": 36,
     "title": "Crescendo",
-    "category": "Music",
+    "category": "Music Club",
     "day": 2,
     "date": "April 10, 2026",
     "time": "02:00 PM",
     "location": "Library Seminar Hall",
-    "color": "#00d2ff",
+    "color": "#f8f8ff",
     "image": "https://images.unsplash.com/photo-1514525253361-bee8d48700df?q=80&w=1000",
     "description": "Focusing on Crescendo, this Music Club event brings together the best minds for Highways'26.",
     "rules": [
@@ -1017,8 +1025,8 @@ const allEvents: EventDetail[] = [
   },
   {
     "id": 37,
-    "title": "Solography",
-    "category": "Dance",
+    "title": "Solo Dance",
+    "category": "Dance Club",
     "day": 1,
     "date": "April 9, 2026",
     "time": "10:00 AM",
@@ -1038,15 +1046,15 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Dance Club Team",
-        "phone": "Available at Helpdesk"
+        "name": "Thanushka",
+        "phone": "7395973335"
       }
     ]
   },
   {
     "id": 38,
-    "title": "Groove Chemistry",
-    "category": "Dance",
+    "title": "Adaptune",
+    "category": "Dance Club",
     "day": 1,
     "date": "April 9, 2026",
     "time": "02:00 PM",
@@ -1066,20 +1074,20 @@ const allEvents: EventDetail[] = [
     "teamSize": "Solo",
     "pocs": [
       {
-        "name": "Dance Club Team",
-        "phone": "Available at Helpdesk"
+        "name": "Kheerthi",
+        "phone": "99403 18111"
       }
     ]
   },
   {
     "id": 39,
-    "title": "Groovanza",
-    "category": "Dance",
+    "title": "Group Dance",
+    "category": "Dance Club",
     "day": 2,
     "date": "April 10, 2026",
     "time": "10:00 AM",
     "location": "OAT",
-    "color": "#ff0000",
+    "color": "#f8f8ff",
     "image": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1000",
     "description": "Focusing on Groovanza, this Dance Club event brings together the best minds for Highways'26.",
     "rules": [
@@ -1094,20 +1102,24 @@ const allEvents: EventDetail[] = [
     "teamSize": "Group",
     "pocs": [
       {
-        "name": "Dance Club Team",
-        "phone": "Available at Helpdesk"
+        "name": "Abinav",
+        "phone": "7338755434"
+      },
+      {
+        "name": "Thanushka",
+        "phone": "7395973335"
       }
     ]
   },
   {
     "id": 40,
-    "title": "Pairfect",
-    "category": "Dance",
+    "title": "Duet",
+    "category": "Dance Club",
     "day": 2,
     "date": "April 10, 2026",
     "time": "02:00 PM",
     "location": "MPH",
-    "color": "#ff0000",
+    "color": "#f8f8ff",
     "image": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1000",
     "description": "Focusing on Pairfect, this Dance Club event brings together the best minds for Highways'26.",
     "rules": [
@@ -1122,14 +1134,18 @@ const allEvents: EventDetail[] = [
     "teamSize": "Group",
     "pocs": [
       {
-        "name": "Dance Club Team",
-        "phone": "Available at Helpdesk"
+        "name": "Mridula",
+        "phone": "86678 63040"
+      },
+      {
+        "name": "Nivethetha",
+        "phone": "7395973335"
       }
     ]
   }
 ];
 
-const categoriesList = ["All", "Music", "Dance", "Drama", "Tech", "Art", "Speech", "Media", "Business", "Social", "Cultural"];
+const categoriesList = ["All","Curtain Call","Reading Club","EWB","ISTD","RRC","Speakers Forum","Shortfilm","Tamil Mandram","ECell","Photo Club","Science Club","Care","Rotaract","Music Club","Dance Club"];
 const dayThemes = [
     {
         id: 1,
@@ -1148,14 +1164,14 @@ const dayThemes = [
         id: 2,
         name: "OVERDRIVE",
         label: "THE VELOCITY",
-        color: "#00d2ff",
+        color: "#f8f8ff",
         kanji: "速",
         bgImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop",
         tagline: "RIDING THE LIGHTNING",
-    style: "cybernetic",
+    style: "organic",
     displayFont: '"Orbitron", "Segoe UI", sans-serif',
     bodyFont: '"Rajdhani", "Segoe UI", sans-serif',
-    buttonText: "#03141a"
+    buttonText: "#1c0f14"
     },
     {
         id: 3,
@@ -1165,7 +1181,7 @@ const dayThemes = [
         kanji: "終",
         bgImage: "https://images.unsplash.com/photo-1516280440623-df9cb83e4776?q=80&w=2000&auto=format&fit=crop",
         tagline: "BEYOND THE HORIZON",
-    style: "chaotic",
+    style: "organic",
     displayFont: '"Bebas Neue", "Impact", "Arial Narrow Bold", sans-serif',
     bodyFont: '"Barlow Condensed", "Segoe UI", sans-serif',
     buttonText: "#ffffff"

@@ -1,197 +1,350 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { supabase } from '../lib/supabase';
+import { X, Upload, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 
 const Passes = () => {
-    const [selectedPass, setSelectedPass] = useState<string | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const passesRepo = [
-        {
-            id: 'day1',
-            name: '1ST DAY PASS',
-            originalPrice: '600',
-            svcePrice: '449',
-            otherPrice: '449',
-            color: '#ffb7c5',
-            desc: '(Inclusive of Celebrity Walk-in, Cultural Events + Day 1 classic events)'
-        },
-        {
-            id: 'day2',
-            name: '2ND DAY PASS',
-            originalPrice: '600',
-            svcePrice: '549',
-            otherPrice: '549',
-            color: '#ffffff',
-            desc: '(Inclusive of Celebrity Walk-in, Stand up, DJ Night + Day 2 classic events)'
-        },
-        {
-            id: 'combo',
-            name: "HIGHWAYS' 26 TICKET",
-            originalPrice: '999',
-            svcePrice: '599',
-            otherPrice: '799',
-            color: '#ef233c',
-            desc: 'Unlock the full spectrum of cultural delights with the Highways 26 combo pass. Prepare for two days of unforgettable entertainment!'
-        },
-        {
-            id: 'alumni',
-            name: 'ALUMNI TICKET',
-            price: '999',
-            color: '#ffffff',
-            desc: 'Exclusive entry for SVCE legends. Welcome back home!'
+const [formData, setFormData] = useState({
+        name: '',
+        register_number: '',
+        id_card_number: '',
+        college_mail: '',
+        college_name: '',
+        mobile_number: '',
+        year: '',
+        department: '',
+        section: '',
+        transaction_id: '',
+        payment_screenshot_base64: ''
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setFormData({ ...formData, payment_screenshot_base64: reader.result as string });
+            };
+            reader.readAsDataURL(file);
         }
-    ];
+    };
 
-    const currentPass = passesRepo.find(p => p.id === selectedPass);
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
+        setError(null);
+
+        try {
+            const { error: supabaseError } = await supabase
+                .from('early_pass_registrations')
+                .insert([{
+                    ...formData,
+                    verification_status: 'pending'
+                }]);
+
+            if (supabaseError) throw supabaseError;
+
+            setSubmitted(true);
+            setTimeout(() => {
+                setIsModalOpen(false);
+                setSubmitted(false);
+                setFormData({
+                    name: '', register_number: '', id_card_number: '', college_mail: '', college_name: '',
+                    mobile_number: '', year: '', department: '', section: '',
+                    transaction_id: '', payment_screenshot_base64: ''
+                });
+            }, 3000);
+
+        } catch (err: any) {
+            setError(err.message || 'Something went wrong. Please try again.');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
-        <section className="passes-page" style={{ paddingTop: '150px', minHeight: '100vh', paddingBottom: '100px' }}>
-            <div className="container">
+        <section className="passes-page" style={{ paddingTop: '150px', minHeight: '100vh', paddingBottom: '100px', background: 'radial-gradient(circle at top, #1a0104 0%, #050000 100%)', color: '#fff' }}>
+            <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
                 <div className="passes-header" style={{ textAlign: 'center', marginBottom: '5rem' }}>
-                    <h1 style={{ fontSize: '4rem', fontWeight: 900, letterSpacing: '2px', textTransform: 'uppercase' }}>BUY YOUR PASSES</h1>
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <h1 style={{ fontSize: 'clamp(3rem, 10vw, 5.5rem)', fontWeight: 950, letterSpacing: '-2px', textTransform: 'uppercase', marginBottom: '1rem', background: 'linear-gradient(to bottom, #fff 0%, #ef233c 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                            HIGHWAYS '26
+                        </h1>
+                        <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '1.4rem', textTransform: 'uppercase', letterSpacing: '4px', fontWeight: 600 }}>EXCLUSIVES PASSES</p>
+                    </motion.div>
                 </div>
 
-                {!selectedPass ? (
-                    <div className="passes-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
-                        {passesRepo.map((pass, i) => (
-                            <motion.div
-                                key={pass.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.1 }}
-                                whileHover={{ y: -10 }}
-                                className="pass-card"
-                                onClick={() => setSelectedPass(pass.id)}
-                                style={{
-                                    background: 'rgba(0,0,0,0.8)',
-                                    border: `1px solid ${pass.color}`,
-                                    borderRadius: '12px',
-                                    padding: '3rem 2rem',
-                                    textAlign: 'center',
-                                    cursor: 'pointer',
-                                    transition: 'all 0.3s ease',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    justifyContent: 'space-between',
-                                    minHeight: '400px'
-                                }}
-                            >
-                                <div>
-                                    <h3 style={{ fontSize: '1.2rem', fontWeight: 900, marginBottom: '2rem' }}>{pass.name}</h3>
-                                    {pass.originalPrice && (
-                                        <div style={{ color: 'red', textDecoration: 'line-through', marginBottom: '1rem', fontSize: '0.9rem' }}>
-                                            Original Price: ₹{pass.originalPrice}
-                                        </div>
-                                    )}
-                                    <div style={{ marginBottom: '0.5rem', fontWeight: 700 }}>
-                                        SVCE Students: <span style={{ color: pass.color }}>₹{pass.svcePrice || pass.price}</span>
-                                    </div>
-                                    <div style={{ fontWeight: 700 }}>
-                                        Other College Students: <span style={{ color: pass.color }}>₹{pass.otherPrice || pass.price}</span>
-                                    </div>
-                                </div>
-                                <button style={{
-                                    marginTop: '2rem',
-                                    padding: '1rem',
-                                    background: 'transparent',
-                                    border: `1px solid ${pass.color}`,
-                                    color: pass.color,
-                                    borderRadius: '8px',
-                                    fontWeight: 900,
-                                    letterSpacing: '1px'
-                                }}>BUY NOW</button>
-                            </motion.div>
-                        ))}
-                    </div>
-                ) : (
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="checkout-container"
-                        style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem' }}
+                        whileHover={{ y: -15, scale: 1.03 }}
+                        onClick={() => setIsModalOpen(true)}
+                        style={{
+                            background: 'rgba(255, 255, 255, 0.03)',
+                            backdropFilter: 'blur(10px)',
+                            border: '1px solid rgba(239, 35, 60, 0.3)',
+                            borderRadius: '32px',
+                            padding: '4rem 2.5rem',
+                            textAlign: 'center',
+                            cursor: 'pointer',
+                            width: '450px',
+                            position: 'relative',
+                            boxShadow: '0 30px 60px rgba(0,0,0,0.6), inset 0 0 20px rgba(239, 35, 60, 0.1)'
+                        }}
                     >
-                        <div className="checkout-info">
-                            <button onClick={() => setSelectedPass(null)} style={{ background: 'transparent', border: 'none', color: 'rgba(255,255,255,0.5)', cursor: 'pointer', marginBottom: '2rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                ← BACK TO PASSES
-                            </button>
-                            <h2 style={{ fontSize: '3.5rem', fontWeight: 900, color: currentPass?.color }}>{currentPass?.name}</h2>
-                            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.1rem', margin: '2rem 0', lineHeight: 1.6 }}>{currentPass?.desc}</p>
-
-                            <div className="checkout-pricing" style={{ fontSize: '1.5rem', fontWeight: 900 }}>
-                                {currentPass?.originalPrice && (
-                                    <div style={{ color: 'red', textDecoration: 'line-through', fontSize: '1rem', opacity: 0.5 }}>Orginal Price: ₹{currentPass.originalPrice}</div>
-                                )}
-                                <div style={{ color: currentPass?.color, marginTop: '0.5rem' }}>SVCE Students: ₹{currentPass?.svcePrice || currentPass?.price}</div>
-                                <div style={{ color: currentPass?.color }}>Other College Students: ₹{currentPass?.otherPrice || currentPass?.price}</div>
-                            </div>
+                        <div style={{ position: 'absolute', top: '24px', right: '24px', padding: '0.6rem 1.2rem', background: '#ef233c', color: 'white', fontWeight: 900, borderRadius: '100px', fontSize: '0.7rem', letterSpacing: '1px' }}>
+                            LIMITIED TIME
                         </div>
-
-                        <div className="checkout-form-container" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.1)', padding: '3rem', borderRadius: '20px' }}>
-                            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '2rem' }}>Fill the details to buy your ticket 🎫</h3>
-                            <form className="ticket-form" style={{ display: 'grid', gap: '1.5rem' }}>
-                                <div className="form-group">
-                                    <input type="text" placeholder="Name" style={formInputStyle} />
-                                </div>
-                                <div className="form-group">
-                                    <input type="text" placeholder="Address" style={formInputStyle} />
-                                </div>
-                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                                    <input type="text" placeholder="City" style={formInputStyle} />
-                                    <input type="text" placeholder="Pincode" style={formInputStyle} />
-                                </div>
-                                <div className="form-group">
-                                    <input type="tel" placeholder="Phone No" style={formInputStyle} />
-                                </div>
-                                <div className="form-group">
-                                    <input type="email" placeholder="Email ID" style={formInputStyle} />
-                                </div>
-                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                                    <input type="text" placeholder="Year of Study" style={formInputStyle} />
-                                    <input type="text" placeholder="College Register No" style={formInputStyle} />
-                                </div>
-                                <div className="form-group">
-                                    <input type="text" placeholder="College" style={formInputStyle} />
-                                </div>
-                                <div className="form-group">
-                                    <input type="text" placeholder="Department" style={formInputStyle} />
-                                </div>
-                                <p style={{ fontSize: '0.7rem', opacity: 0.5, textAlign: 'center' }}>Note: Please provide a valid email address for receiving the tickets.</p>
-                                <button type="button" style={{
-                                    background: 'white',
-                                    color: 'black',
-                                    border: 'none',
-                                    padding: '1.2rem',
-                                    borderRadius: '8px',
-                                    fontWeight: 900,
-                                    fontSize: '0.9rem',
-                                    marginTop: '1rem',
-                                    cursor: 'pointer',
-                                    textTransform: 'uppercase'
-                                }}>PROCEED TO PAYMENT</button>
-                            </form>
+                        <h3 style={{ fontSize: '2.4rem', fontWeight: 950, marginBottom: '1rem', color: '#fff', letterSpacing: '-1px' }}>EARLY BIRD</h3>
+                        <div style={{ color: '#ef233c', fontWeight: 800, fontSize: '0.9rem', marginBottom: '1.5rem', textTransform: 'uppercase' }}>All-In-One Experience</div>
+                        <p style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '2.5rem', lineHeight: 1.7, fontSize: '1.05rem' }}>
+                            The ultimate pass for Highways '26. Includes access to all 3-days of events, celebrity nights, and primary workshops.
+                        </p>
+                        <div style={{ fontSize: '3.5rem', fontWeight: 950, marginBottom: '2.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                            <span style={{ fontSize: '1.5rem', color: '#ef233c' }}>₹</span>999
                         </div>
+                        <button style={{
+                            width: '100%',
+                            padding: '1.3rem',
+                            background: '#ef233c',
+                            border: 'none',
+                            color: 'white',
+                            borderRadius: '16px',
+                            fontWeight: 950,
+                            letterSpacing: '2px',
+                            cursor: 'pointer',
+                            textTransform: 'uppercase',
+                            boxShadow: '0 10px 20px rgba(239, 35, 60, 0.3)',
+                            fontSize: '1rem'
+                        }}>SECURE YOUR TICKET</button>
                     </motion.div>
-                )}
+                </div>
             </div>
 
-            <style>{`
-                .pass-card:hover { border-width: 2px !important; }
-                @media (max-width: 992px) {
-                    .checkout-container { grid-template-columns: 1fr !important; }
-                }
-            `}</style>
+            <AnimatePresence>
+                {isModalOpen && (
+                    <div style={{
+                        position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
+                        background: 'rgba(0,0,0,0.97)', zIndex: 1000, display: 'flex',
+                        alignItems: 'center', justifyContent: 'center', padding: '20px'
+                    }}>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, y: 30 }}
+                            style={{
+                                background: '#0a0a0a', width: '100%', maxWidth: '850px',
+                                maxHeight: '95vh', overflowY: 'auto', borderRadius: '32px',
+                                border: '1px solid rgba(255,255,255,0.05)', position: 'relative',
+                                padding: '3.5rem', boxShadow: '0 50px 100px rgba(0,0,0,0.8)'
+                            }}
+                        >
+                            <button 
+                                onClick={() => setIsModalOpen(false)}
+                                style={{ position: 'absolute', top: '25px', right: '25px', background: 'rgba(255,255,255,0.05)', border: 'none', color: '#fff', cursor: 'pointer', padding: '10px', borderRadius: '50%', transition: '0.3s' }}
+                            >
+                                <X size={20} />
+                            </button>
+
+                            {submitted ? (
+                                <div style={{ textAlign: 'center', padding: '5rem 0' }}>
+                                    <div style={{ width: '100px', height: '100px', background: 'rgba(74, 222, 128, 0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem' }}>
+                                        <CheckCircle2 size={60} color="#4ade80" />
+                                    </div>
+                                    <h2 style={{ fontSize: '2.8rem', fontWeight: 950, marginBottom: '1rem', letterSpacing: '-1px' }}>Received!</h2>
+                                    <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.2rem', maxWidth: '400px', margin: '0 auto', lineHeight: 1.6 }}>
+                                        We're validating your transaction. Your e-ticket will arrive in your college inbox shortly.
+                                    </p>
+                                </div>
+                            ) : (
+                                <>
+                                    <div style={{ marginBottom: '3rem' }}>
+                                        <h2 style={{ fontSize: '2.5rem', fontWeight: 950, marginBottom: '0.5rem', letterSpacing: '-1px' }}>Register</h2>
+                                        <p style={{ color: 'rgba(255,255,255,0.4)', fontWeight: 600 }}>Highways '26 Early Pass Access Portal</p>
+                                    </div>
+                                    
+                                    <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '1.8rem' }}>
+                                        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '1.8rem' }}>
+                                            <div className="form-group">
+                                                <label style={labelStyle}>Full Name</label>
+                                                <input required name="name" type="text" placeholder="As per ID Card" style={inputStyle} value={formData.name} onChange={handleChange} />
+                                            </div>
+                                            <div className="form-group">
+                                                <label style={labelStyle}>College Register No</label>
+                                                <input required name="register_number" type="text" placeholder="Ex: 211022020" style={inputStyle} value={formData.register_number} onChange={handleChange} />
+                                            </div>
+                                        </div>
+
+                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.8rem' }}>
+                                            <div className="form-group">
+                                                <label style={labelStyle}>College Name</label>
+                                                <input required name="college_name" type="text" placeholder="Full College Name" style={inputStyle} value={formData.college_name} onChange={handleChange} />
+                                            </div>
+                                            <div className="form-group">
+                                                <label style={labelStyle}>College Mail ID</label>
+                                                <input required name="college_mail" type="email" placeholder="student@college.edu" style={inputStyle} value={formData.college_mail} onChange={handleChange} />
+                                            </div>
+                                        </div>
+
+                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.8rem' }}>
+                                            <div className="form-group">
+                                                <label style={labelStyle}>ID Card Number</label>
+                                                <input required name="id_card_number" type="text" placeholder="Unique ID on card" style={inputStyle} value={formData.id_card_number} onChange={handleChange} />
+                                            </div>
+                                            <div className="form-group">
+                                                <label style={labelStyle}>WhatsApp Number</label>
+                                                <input required name="mobile_number" type="tel" placeholder="+91 XXXXX XXXXX" style={inputStyle} value={formData.mobile_number} onChange={handleChange} />
+                                            </div>
+                                        </div>
+
+                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1.2rem' }}>
+                                            <div className="form-group">
+                                                <label style={labelStyle}>Study Year</label>
+                                                <select required name="year" style={inputStyle} value={formData.year} onChange={handleChange}>
+                                                    <option value="">Select</option>
+                                                    <option value="I">I Year</option>
+                                                    <option value="II">II Year</option>
+                                                    <option value="III">III Year</option>
+                                                    <option value="IV">IV Year</option>
+                                                </select>
+                                            </div>
+                                            <div className="form-group">
+                                                <label style={labelStyle}>Department</label>
+                                                <select required name="department" style={inputStyle} value={formData.department} onChange={handleChange}>
+                                                    <option value="">Select</option>
+                                                    <option value="CSE">CSE</option>
+                                                    <option value="IT">IT</option>
+                                                    <option value="ECE">ECE</option>
+                                                    <option value="EEE">EEE</option>
+                                                    <option value="MECH">MECH</option>
+                                                    <option value="CIVIL">CIVIL</option>
+                                                    <option value="AI-DS">AI-DS</option>
+                                                    <option value="OTHER">OTHER</option>
+                                                </select>
+                                            </div>
+                                            <div className="form-group">
+                                                <label style={labelStyle}>Section</label>
+                                                <select required name="section" style={inputStyle} value={formData.section} onChange={handleChange}>
+                                                    <option value="">Select</option>
+                                                    <option value="A">A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="C">C</option>
+                                                    <option value="D">D</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div style={{ padding: '3rem 2rem', background: '#fff', borderRadius: '24px', textAlign: 'center', margin: '1rem 0', boxShadow: 'inset 0 0 40px rgba(0,0,0,0.05)' }}>
+                                            <p style={{ color: '#ef233c', fontWeight: 900, marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.8rem' }}>Step 1: Payment</p>
+                                            <h4 style={{ color: '#000', fontSize: '1.4rem', fontWeight: 950, marginBottom: '2rem' }}>Scan the Official Bank QR</h4>
+                                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                                <div style={{ padding: '15px', background: '#000', borderRadius: '20px' }}>
+                                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=YOUR_PAYMENT_UPI_LINK" alt="Payment QR" style={{ width: '220px', height: '220px', borderRadius: '10px' }} />
+                                                </div>
+                                            </div>
+                                            <p style={{ color: '#666', fontSize: '0.85rem', marginTop: '1.5rem', fontWeight: 500 }}>Highways '26 Official Payment Gateway</p>
+                                        </div>
+
+                                        <div style={{ marginBottom: '1.5rem' }}>
+                                            <p style={{ color: '#ef233c', fontWeight: 900, marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.8rem' }}>Step 2: Verification</p>
+                                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.8rem', alignItems: 'end' }}>
+                                                <div className="form-group">
+                                                    <label style={labelStyle}>Transaction ID (UTR)</label>
+                                                    <input required name="transaction_id" type="text" placeholder="12-digit number" style={inputStyle} value={formData.transaction_id} onChange={handleChange} />
+                                                </div>
+                                                <div className="form-group">
+                                                    <label style={labelStyle}>Payment Screenshot</label>
+                                                    <div 
+                                                        onClick={() => fileInputRef.current?.click()}
+                                                        style={{
+                                                            background: 'rgba(255,255,255,0.03)',
+                                                            border: '2px dashed rgba(255,255,255,0.1)',
+                                                            borderRadius: '16px',
+                                                            padding: '1.1rem',
+                                                            textAlign: 'center',
+                                                            cursor: 'pointer',
+                                                            color: formData.payment_screenshot_base64 ? '#4ade80' : 'rgba(255,255,255,0.4)',
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            justifyContent: 'center',
+                                                            gap: '0.8rem',
+                                                            fontSize: '0.9rem',
+                                                            fontWeight: 700,
+                                                            transition: '0.3s'
+                                                        }}
+                                                    >
+                                                        {formData.payment_screenshot_base64 ? <CheckCircle2 size={20} /> : <Upload size={20} />}
+                                                        {formData.payment_screenshot_base64 ? 'VERIFIED' : 'CHOOSE FILE'}
+                                                    </div>
+                                                    <input required type="file" ref={fileInputRef} onChange={handleFileChange} style={{ display: 'none' }} accept="image/*" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {error && (
+                                            <div style={{ color: '#ef4444', background: 'rgba(239, 68, 68, 0.05)', padding: '1.2rem', borderRadius: '16px', display: 'flex', alignItems: 'center', gap: '0.8rem', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
+                                                <AlertCircle size={20} />
+                                                <span style={{ fontWeight: 600, fontSize: '0.9rem' }}>{error}</span>
+                                            </div>
+                                        )}
+
+                                        <button 
+                                            disabled={loading}
+                                            type="submit" 
+                                            style={{
+                                                background: '#ef233c', color: 'white', border: 'none',
+                                                padding: '1.4rem', borderRadius: '16px', fontWeight: 950,
+                                                fontSize: '1.1rem', marginTop: '1rem', cursor: loading ? 'not-allowed' : 'pointer',
+                                                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem',
+                                                transition: '0.3s', boxShadow: '0 20px 40px rgba(239, 35, 60, 0.2)'
+                                            }}
+                                        >
+                                            {loading ? <Loader2 className="animate-spin" /> : <>COMPLETE PURCHASE <CheckCircle2 size={20} /></>}
+                                        </button>
+                                    </form>
+                                </>
+                            )}
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };
 
-const formInputStyle = {
+const inputStyle = {
     width: '100%',
-    padding: '1rem',
-    background: 'rgba(0,0,0,0.5)',
-    border: '1px solid rgba(255,255,255,0.1)',
-    borderRadius: '6px',
+    padding: '1rem 1.2rem',
+    background: 'rgba(255,255,255,0.02)',
+    border: '1.5px solid rgba(255,255,255,0.08)',
+    borderRadius: '16px',
     color: 'white',
-    fontSize: '0.9rem',
-    outline: 'none'
+    fontSize: '1rem',
+    outline: 'none',
+    marginTop: '0.8rem',
+    transition: '0.3s',
+    fontFamily: 'inherit'
+};
+
+const labelStyle = {
+    fontSize: '0.75rem',
+    fontWeight: 800,
+    color: 'rgba(255,255,255,0.35)',
+    textTransform: 'uppercase' as const,
+    letterSpacing: '1.5px'
 };
 
 export default Passes;
